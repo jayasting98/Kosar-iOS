@@ -16,7 +16,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UILabel *helloWorldLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+    CGFloat x = 20 + arc4random() % (300 - 20);
+    CGFloat y = 20 + arc4random() % (300 - 20);
+    UILabel *helloWorldLabel = [[UILabel alloc] initWithFrame:CGRectMake(x, y, 100, 40)];
     helloWorldLabel.text = @"Hello World!";
     [self.view addSubview:helloWorldLabel];
 }

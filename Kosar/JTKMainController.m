@@ -7,9 +7,15 @@
 
 #import "JTKMainController.h"
 
+#import "JTKContainerSchemeHelper.h"
 #import "JTKHomeController.h"
 
+#include <MaterialComponents/MDCContainerScheme.h>
+#import "MaterialBottomNavigation+Theming.h"
+
 @interface JTKMainController ()
+
+@property (nonatomic) MDCBottomNavigationBar *bottomNavigationBar;
 
 @end
 
@@ -19,21 +25,66 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self buildBottomNavigationBar];
     self.viewControllers = @[
-        [self createTabWithTitle:@"first" withViewController:[[JTKHomeController alloc] init]],
-        [self createTabWithTitle:@"second" withViewController:[[JTKHomeController alloc] init]],
-        [self createTabWithTitle:@"third" withViewController:[[JTKHomeController alloc] init]]
+        [self createTabWithViewController:[[JTKHomeController alloc] init]],
+        [self createTabWithViewController:[[JTKHomeController alloc] init]],
+        [self createTabWithViewController:[[JTKHomeController alloc] init]]
     ];
-    [self.tabBar setBackgroundColor:[UIColor grayColor]];
 }
 
 
-- (UINavigationController *)createTabWithTitle:(NSString *)title withViewController:(UIViewController *)viewController {
+- (void)buildBottomNavigationBar {
+    self.bottomNavigationBar = [[MDCBottomNavigationBar alloc] init];
+    [self.view addSubview:self.bottomNavigationBar];
+    self.bottomNavigationBar.titleVisibility = MDCBottomNavigationBarTitleVisibilitySelected;
+    self.bottomNavigationBar.alignment = MDCBottomNavigationBarAlignmentJustifiedAdjacentTitles;
+    UITabBarItem *homeItem = [[UITabBarItem alloc] initWithTitle:@"Home"
+                                                           image:[UIImage imageNamed:@"timeline-timeline_symbol"]
+                                                             tag:0];
+    UITabBarItem *homeItem2 = [[UITabBarItem alloc] initWithTitle:@"Home2"
+                                                            image:[UIImage imageNamed:@"timeline-timeline_symbol"]
+                                                              tag:1];
+    UITabBarItem *homeItem3 = [[UITabBarItem alloc] initWithTitle:@"Home3"
+                                                            image:[UIImage imageNamed:@"timeline-timeline_symbol"]
+                                                              tag:2];
+    self.bottomNavigationBar.items = @[homeItem, homeItem2, homeItem3];
+    self.bottomNavigationBar.selectedItem = homeItem;
+    self.bottomNavigationBar.delegate = self;
+    [self.bottomNavigationBar applyPrimaryThemeWithScheme:[JTKContainerSchemeHelper getContainerScheme]];
+}
+
+
+- (void)layoutBottomNavigationBar {
+    CGSize size = [self.bottomNavigationBar sizeThatFits:self.view.bounds.size];
+    CGRect bottomNavigationBarFrame = CGRectMake(
+        0,
+        self.view.bounds.size.height - size.height,
+        size.width,
+        size.height
+    );
+    bottomNavigationBarFrame.size.height += self.view.safeAreaInsets.bottom;
+    bottomNavigationBarFrame.origin.y -= self.view.safeAreaInsets.bottom;
+    self.bottomNavigationBar.frame = bottomNavigationBarFrame;
+}
+
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self layoutBottomNavigationBar];
+}
+
+
+- (UINavigationController *)createTabWithViewController:(UIViewController *)viewController {
     UINavigationController *tabViewController = [
         [UINavigationController alloc] initWithRootViewController:viewController
     ];
-    tabViewController.title = title;
     return tabViewController;
+}
+
+
+- (void)bottomNavigationBar:(MDCBottomNavigationBar *)bottomNavigationBar didSelectItem:(UITabBarItem *)item {
+    self.selectedIndex = item.tag;
 }
 
 
