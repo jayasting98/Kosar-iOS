@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		219BDC65031BE7EADA7E876C /* Pods_Kosar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A123F083EF7E2DE2FA4392 /* Pods_Kosar.framework */; };
 		2B4473E828471E5A00DCC67D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4473E728471E5A00DCC67D /* AppDelegate.m */; };
 		2B4473EB28471E5A00DCC67D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4473EA28471E5A00DCC67D /* SceneDelegate.m */; };
 		2B4473EE28471E5A00DCC67D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4473ED28471E5A00DCC67D /* ViewController.m */; };
@@ -17,6 +18,9 @@
 		2B44740328471E5D00DCC67D /* KosarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44740228471E5D00DCC67D /* KosarTests.m */; };
 		2B44740D28471E5D00DCC67D /* KosarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44740C28471E5D00DCC67D /* KosarUITests.m */; };
 		2B44740F28471E5D00DCC67D /* KosarUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44740E28471E5D00DCC67D /* KosarUITestsLaunchTests.m */; };
+		2B44741D2847200B00DCC67D /* JTKMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44741C2847200B00DCC67D /* JTKMainController.m */; };
+		616468926ECA3C422703DBCE /* Pods_KosarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64527FE02D2BA87EEE632233 /* Pods_KosarTests.framework */; };
+		969EE3AFCA35E3704CA11E6E /* Pods_Kosar_KosarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E296520C11AEB8527CA22A /* Pods_Kosar_KosarUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,18 @@
 		2B44740828471E5D00DCC67D /* KosarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KosarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B44740C28471E5D00DCC67D /* KosarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KosarUITests.m; sourceTree = "<group>"; };
 		2B44740E28471E5D00DCC67D /* KosarUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KosarUITestsLaunchTests.m; sourceTree = "<group>"; };
+		2B44741B28471FAC00DCC67D /* JTKMainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKMainController.h; sourceTree = "<group>"; };
+		2B44741C2847200B00DCC67D /* JTKMainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKMainController.m; sourceTree = "<group>"; };
+		2B44741E28473CD900DCC67D /* JTKHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKHomeController.h; sourceTree = "<group>"; };
+		417215E5A532946E66792EBF /* Pods-Kosar-KosarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kosar-KosarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Kosar-KosarUITests/Pods-Kosar-KosarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		42C0B351D327C7DD23D27904 /* Pods-Kosar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kosar.release.xcconfig"; path = "Target Support Files/Pods-Kosar/Pods-Kosar.release.xcconfig"; sourceTree = "<group>"; };
+		4D1C433F2FBC8BF31CF48F33 /* Pods-Kosar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kosar.debug.xcconfig"; path = "Target Support Files/Pods-Kosar/Pods-Kosar.debug.xcconfig"; sourceTree = "<group>"; };
+		5FB37B0BE871EE855025D90F /* Pods-KosarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KosarTests.release.xcconfig"; path = "Target Support Files/Pods-KosarTests/Pods-KosarTests.release.xcconfig"; sourceTree = "<group>"; };
+		64527FE02D2BA87EEE632233 /* Pods_KosarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KosarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73A123F083EF7E2DE2FA4392 /* Pods_Kosar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kosar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CF5B46CE65F5B7E1E0D8515 /* Pods-KosarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KosarTests.debug.xcconfig"; path = "Target Support Files/Pods-KosarTests/Pods-KosarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F70C5C49C980D6B30560090 /* Pods-Kosar-KosarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kosar-KosarUITests.release.xcconfig"; path = "Target Support Files/Pods-Kosar-KosarUITests/Pods-Kosar-KosarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C6E296520C11AEB8527CA22A /* Pods_Kosar_KosarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kosar_KosarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219BDC65031BE7EADA7E876C /* Pods_Kosar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				616468926ECA3C422703DBCE /* Pods_KosarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969EE3AFCA35E3704CA11E6E /* Pods_Kosar_KosarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +107,8 @@
 				2B44740128471E5D00DCC67D /* KosarTests */,
 				2B44740B28471E5D00DCC67D /* KosarUITests */,
 				2B4473E428471E5A00DCC67D /* Products */,
+				70873D0FDDBBAD546B0A6B40 /* Pods */,
+				E84990A97D400930016CDA1D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +136,9 @@
 				2B4473F428471E5C00DCC67D /* LaunchScreen.storyboard */,
 				2B4473F728471E5C00DCC67D /* Info.plist */,
 				2B4473F828471E5C00DCC67D /* main.m */,
+				2B44741B28471FAC00DCC67D /* JTKMainController.h */,
+				2B44741C2847200B00DCC67D /* JTKMainController.m */,
+				2B44741E28473CD900DCC67D /* JTKHomeController.h */,
 			);
 			path = Kosar;
 			sourceTree = "<group>";
@@ -136,6 +160,29 @@
 			path = KosarUITests;
 			sourceTree = "<group>";
 		};
+		70873D0FDDBBAD546B0A6B40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D1C433F2FBC8BF31CF48F33 /* Pods-Kosar.debug.xcconfig */,
+				42C0B351D327C7DD23D27904 /* Pods-Kosar.release.xcconfig */,
+				417215E5A532946E66792EBF /* Pods-Kosar-KosarUITests.debug.xcconfig */,
+				9F70C5C49C980D6B30560090 /* Pods-Kosar-KosarUITests.release.xcconfig */,
+				9CF5B46CE65F5B7E1E0D8515 /* Pods-KosarTests.debug.xcconfig */,
+				5FB37B0BE871EE855025D90F /* Pods-KosarTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E84990A97D400930016CDA1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73A123F083EF7E2DE2FA4392 /* Pods_Kosar.framework */,
+				C6E296520C11AEB8527CA22A /* Pods_Kosar_KosarUITests.framework */,
+				64527FE02D2BA87EEE632233 /* Pods_KosarTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +190,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B44741228471E5D00DCC67D /* Build configuration list for PBXNativeTarget "Kosar" */;
 			buildPhases = (
+				D66E1CB40126B8A10949FF93 /* [CP] Check Pods Manifest.lock */,
 				2B4473DF28471E5A00DCC67D /* Sources */,
 				2B4473E028471E5A00DCC67D /* Frameworks */,
 				2B4473E128471E5A00DCC67D /* Resources */,
+				58EB7EFA926CB5D4DA1DD31E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B44741528471E5D00DCC67D /* Build configuration list for PBXNativeTarget "KosarTests" */;
 			buildPhases = (
+				F875D4FD572050D7CF3FC143 /* [CP] Check Pods Manifest.lock */,
 				2B4473FA28471E5D00DCC67D /* Sources */,
 				2B4473FB28471E5D00DCC67D /* Frameworks */,
 				2B4473FC28471E5D00DCC67D /* Resources */,
@@ -178,9 +228,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B44741828471E5D00DCC67D /* Build configuration list for PBXNativeTarget "KosarUITests" */;
 			buildPhases = (
+				2B33F8FBB3D565B31A89CEB3 /* [CP] Check Pods Manifest.lock */,
 				2B44740428471E5D00DCC67D /* Sources */,
 				2B44740528471E5D00DCC67D /* Frameworks */,
 				2B44740628471E5D00DCC67D /* Resources */,
+				229721630961BCB03C89CA5E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,12 +313,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		229721630961BCB03C89CA5E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kosar-KosarUITests/Pods-Kosar-KosarUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kosar-KosarUITests/Pods-Kosar-KosarUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kosar-KosarUITests/Pods-Kosar-KosarUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B33F8FBB3D565B31A89CEB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kosar-KosarUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58EB7EFA926CB5D4DA1DD31E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kosar/Pods-Kosar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kosar/Pods-Kosar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kosar/Pods-Kosar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D66E1CB40126B8A10949FF93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kosar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F875D4FD572050D7CF3FC143 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KosarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2B4473DF28471E5A00DCC67D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2B4473EE28471E5A00DCC67D /* ViewController.m in Sources */,
+				2B44741D2847200B00DCC67D /* JTKMainController.m in Sources */,
 				2B4473E828471E5A00DCC67D /* AppDelegate.m in Sources */,
 				2B4473F928471E5C00DCC67D /* main.m in Sources */,
 				2B4473EB28471E5A00DCC67D /* SceneDelegate.m in Sources */,
@@ -437,6 +593,7 @@
 		};
 		2B44741328471E5D00DCC67D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D1C433F2FBC8BF31CF48F33 /* Pods-Kosar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -463,6 +620,7 @@
 		};
 		2B44741428471E5D00DCC67D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42C0B351D327C7DD23D27904 /* Pods-Kosar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -489,6 +647,7 @@
 		};
 		2B44741628471E5D00DCC67D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CF5B46CE65F5B7E1E0D8515 /* Pods-KosarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -506,6 +665,7 @@
 		};
 		2B44741728471E5D00DCC67D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FB37B0BE871EE855025D90F /* Pods-KosarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +683,7 @@
 		};
 		2B44741928471E5D00DCC67D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 417215E5A532946E66792EBF /* Pods-Kosar-KosarUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -538,6 +699,7 @@
 		};
 		2B44741A28471E5D00DCC67D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F70C5C49C980D6B30560090 /* Pods-Kosar-KosarUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
