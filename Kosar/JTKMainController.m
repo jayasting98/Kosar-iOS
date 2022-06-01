@@ -7,6 +7,8 @@
 
 #import "JTKMainController.h"
 
+#import "JTKHomeController.h"
+
 @interface JTKMainController ()
 
 @end
@@ -17,9 +19,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    UILabel *helloWorldLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
-    helloWorldLabel.text = @"Hello World!";
-    [self.view addSubview:helloWorldLabel];
+    self.viewControllers = @[
+        [self createTabWithTitle:@"first" withViewController:[[JTKHomeController alloc] init]],
+        [self createTabWithTitle:@"second" withViewController:[[JTKHomeController alloc] init]],
+        [self createTabWithTitle:@"third" withViewController:[[JTKHomeController alloc] init]]
+    ];
+    [self.tabBar setBackgroundColor:[UIColor grayColor]];
+}
+
+
+- (UINavigationController *)createTabWithTitle:(NSString *)title withViewController:(UIViewController *)viewController {
+    UINavigationController *tabViewController = [
+        [UINavigationController alloc] initWithRootViewController:viewController
+    ];
+    tabViewController.title = title;
+    return tabViewController;
 }
 
 
