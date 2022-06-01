@@ -7,6 +7,7 @@ target 'Kosar' do
 
   # Pods for Kosar
   pod 'MaterialComponents/BottomNavigation'
+  pod 'MaterialComponents/BottomNavigation+Theming'
 
   target 'KosarTests' do
     inherit! :search_paths
