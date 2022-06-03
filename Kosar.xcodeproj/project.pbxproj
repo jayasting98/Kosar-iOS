@@ -21,6 +21,8 @@
 		2B44741D2847200B00DCC67D /* JTKMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44741C2847200B00DCC67D /* JTKMainController.m */; };
 		2B4474202847412900DCC67D /* JTKHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44741F2847412900DCC67D /* JTKHomeController.m */; };
 		2B447423284793A800DCC67D /* JTKContainerSchemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B447422284793A800DCC67D /* JTKContainerSchemeHelper.m */; };
+		2B447426284863C800DCC67D /* JTKPostSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B447425284863C800DCC67D /* JTKPostSectionController.m */; };
+		2B44742928486D0F00DCC67D /* JTKPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44742828486D0F00DCC67D /* JTKPostCell.m */; };
 		616468926ECA3C422703DBCE /* Pods_KosarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64527FE02D2BA87EEE632233 /* Pods_KosarTests.framework */; };
 		969EE3AFCA35E3704CA11E6E /* Pods_Kosar_KosarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E296520C11AEB8527CA22A /* Pods_Kosar_KosarUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +68,10 @@
 		2B44741F2847412900DCC67D /* JTKHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKHomeController.m; sourceTree = "<group>"; };
 		2B447421284790F200DCC67D /* JTKContainerSchemeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKContainerSchemeHelper.h; sourceTree = "<group>"; };
 		2B447422284793A800DCC67D /* JTKContainerSchemeHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKContainerSchemeHelper.m; sourceTree = "<group>"; };
+		2B4474242848633000DCC67D /* JTKPostSectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKPostSectionController.h; sourceTree = "<group>"; };
+		2B447425284863C800DCC67D /* JTKPostSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKPostSectionController.m; sourceTree = "<group>"; };
+		2B44742728486C2100DCC67D /* JTKPostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKPostCell.h; sourceTree = "<group>"; };
+		2B44742828486D0F00DCC67D /* JTKPostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKPostCell.m; sourceTree = "<group>"; };
 		417215E5A532946E66792EBF /* Pods-Kosar-KosarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kosar-KosarUITests.debug.xcconfig"; path = "Target Support Files/Pods-Kosar-KosarUITests/Pods-Kosar-KosarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		42C0B351D327C7DD23D27904 /* Pods-Kosar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kosar.release.xcconfig"; path = "Target Support Files/Pods-Kosar/Pods-Kosar.release.xcconfig"; sourceTree = "<group>"; };
 		4D1C433F2FBC8BF31CF48F33 /* Pods-Kosar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kosar.debug.xcconfig"; path = "Target Support Files/Pods-Kosar/Pods-Kosar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +153,10 @@
 				2B44741F2847412900DCC67D /* JTKHomeController.m */,
 				2B447421284790F200DCC67D /* JTKContainerSchemeHelper.h */,
 				2B447422284793A800DCC67D /* JTKContainerSchemeHelper.m */,
+				2B4474242848633000DCC67D /* JTKPostSectionController.h */,
+				2B447425284863C800DCC67D /* JTKPostSectionController.m */,
+				2B44742728486C2100DCC67D /* JTKPostCell.h */,
+				2B44742828486D0F00DCC67D /* JTKPostCell.m */,
 			);
 			path = Kosar;
 			sourceTree = "<group>";
@@ -434,8 +444,10 @@
 				2B447423284793A800DCC67D /* JTKContainerSchemeHelper.m in Sources */,
 				2B4473E828471E5A00DCC67D /* AppDelegate.m in Sources */,
 				2B4473F928471E5C00DCC67D /* main.m in Sources */,
+				2B447426284863C800DCC67D /* JTKPostSectionController.m in Sources */,
 				2B4474202847412900DCC67D /* JTKHomeController.m in Sources */,
 				2B4473EB28471E5A00DCC67D /* SceneDelegate.m in Sources */,
+				2B44742928486D0F00DCC67D /* JTKPostCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
