@@ -75,6 +75,19 @@
 }
 
 
+- (void)adjustAdditionalSafeAreaInsetsDueToBottomNavigationBar {
+    UIEdgeInsets newSafeArea = self.additionalSafeAreaInsets;
+    newSafeArea.bottom += self.bottomNavigationBar.frame.size.height - self.tabBar.frame.size.height;
+    self.selectedViewController.additionalSafeAreaInsets = newSafeArea;
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self adjustAdditionalSafeAreaInsetsDueToBottomNavigationBar];
+}
+
+
 - (UINavigationController *)createTabWithViewController:(UIViewController *)viewController {
     UINavigationController *tabViewController = [
         [UINavigationController alloc] initWithRootViewController:viewController
