@@ -51,7 +51,6 @@
     self.bottomNavigationBar.items = @[homeItem, homeItem2, homeItem3];
     self.bottomNavigationBar.selectedItem = homeItem;
     self.bottomNavigationBar.delegate = self;
-    [self.bottomNavigationBar applyPrimaryThemeWithScheme:[JTKContainerSchemeHelper getContainerScheme]];
 }
 
 
