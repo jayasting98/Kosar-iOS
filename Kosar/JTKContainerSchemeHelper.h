@@ -15,4 +15,3 @@
 + (MDCContainerScheme *)getContainerScheme;
 
 @end
-
