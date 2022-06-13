@@ -8,6 +8,7 @@
 #import "JTKHomeController.h"
 
 #import "JTKPostSectionController.h"
+#import "JTKPostsViewModel.h"
 
 #import <IGListKit/IGListKit.h>
 
@@ -17,6 +18,8 @@
 
 @property (nonatomic) IGListAdapter *adapter;
 
+@property (nonatomic) JTKPostsViewModel *postsViewModel;
+
 @end
 
 @implementation JTKHomeController
@@ -24,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.postsViewModel = [[JTKPostsViewModel alloc] init];
     UICollectionViewLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [self.view addSubview:self.collectionView];
@@ -41,12 +45,7 @@
 
 
 - (NSArray<id<IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter {
-    NSMutableArray<id<IGListDiffable>> *list = [[NSMutableArray alloc] initWithArray:@[@"Foo", @"Bar", @"Biz"]];
-    for (int i = 0; i < 20; i++) {
-        NSString *newObject = [NSString stringWithFormat:@"%d", arc4random()];
-        [list addObject:newObject];
-    }
-    return list;
+    return self.postsViewModel.posts;
 }
 
 
