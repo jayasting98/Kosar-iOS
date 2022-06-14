@@ -11,9 +11,11 @@
 #import "JTKPostsViewModel.h"
 
 #import <IGListKit/IGListKit.h>
+#import "MaterialButtons.h"
 
 @interface JTKHomeController () <IGListAdapterDataSource>
 
+@property (nonatomic) MDCFloatingButton *floatingActionButton;
 @property (nonatomic) UICollectionView *collectionView;
 
 @property (nonatomic) IGListAdapter *adapter;
@@ -35,12 +37,22 @@
     self.adapter = [[IGListAdapter alloc] initWithUpdater:updater viewController:self];
     self.adapter.collectionView = self.collectionView;
     self.adapter.dataSource = self;
+    [self setupFloatingActionButton];
 }
 
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.collectionView.frame = self.view.bounds;
+}
+
+
+- (void)setupFloatingActionButton {
+    self.floatingActionButton = [MDCFloatingButton floatingButtonWithShape:MDCFloatingButtonShapeDefault];
+    [self.view addSubview:self.floatingActionButton];
+    self.floatingActionButton.frame = CGRectMake(300, 300, 56, 56);
+    UIImage *floatingActionButtonImage = [UIImage imageNamed:@"add-add_symbol"];
+    [self.floatingActionButton setImage:floatingActionButtonImage forState:UIControlStateNormal];
 }
 
 
