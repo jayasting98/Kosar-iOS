@@ -2,6 +2,7 @@ PODS:
   - IGListDiffKit (4.0.0)
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
+  - Masonry (1.1.0)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/BottomNavigation (124.2.0):
@@ -90,6 +91,7 @@ PODS:
 
 DEPENDENCIES:
   - IGListKit (~> 4.0.0)
+  - Masonry
   - MaterialComponents/BottomNavigation
   - "MaterialComponents/BottomNavigation+Theming"
   - MaterialComponents/Buttons
@@ -98,6 +100,7 @@ SPEC REPOS:
   trunk:
     - IGListDiffKit
     - IGListKit
+    - Masonry
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
@@ -105,10 +108,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
 
-PODFILE CHECKSUM: afcc35098d51afdd0bb1539f4207f700914f3c1d
+PODFILE CHECKSUM: 9aceb3fa75c2f8294fe20a4e3e63c3377202bce4
 
 COCOAPODS: 1.11.3
