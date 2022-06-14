@@ -11,7 +11,14 @@
 #import "JTKPostsViewModel.h"
 
 #import <IGListKit/IGListKit.h>
+#import "Masonry.h"
 #import "MaterialButtons.h"
+
+NSString * const kFloatingActionButtonIcon = @"add-add_symbol";
+
+CGFloat const kFloatingActionButtonMarginBottom = 16;
+CGFloat const kFloatingActionButtonMarginRight = 16;
+CGSize const kFloatingActionButtonSize = {56, 56};
 
 @interface JTKHomeController () <IGListAdapterDataSource>
 
@@ -41,6 +48,12 @@
 }
 
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self layoutFloatingActionButton];
+}
+
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.collectionView.frame = self.view.bounds;
@@ -50,9 +63,20 @@
 - (void)setupFloatingActionButton {
     self.floatingActionButton = [MDCFloatingButton floatingButtonWithShape:MDCFloatingButtonShapeDefault];
     [self.view addSubview:self.floatingActionButton];
-    self.floatingActionButton.frame = CGRectMake(300, 300, 56, 56);
-    UIImage *floatingActionButtonImage = [UIImage imageNamed:@"add-add_symbol"];
+    UIImage *floatingActionButtonImage = [UIImage imageNamed:kFloatingActionButtonIcon];
     [self.floatingActionButton setImage:floatingActionButtonImage forState:UIControlStateNormal];
+}
+
+
+- (void)layoutFloatingActionButton {
+    UIEdgeInsets margin = self.view.safeAreaInsets;
+    margin.bottom += kFloatingActionButtonMarginBottom;
+    margin.right += kFloatingActionButtonMarginRight;
+    [self.floatingActionButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(kFloatingActionButtonSize);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-margin.bottom);
+        make.right.equalTo(self.view.mas_right).with.offset(-margin.right);
+    }];
 }
 
 
