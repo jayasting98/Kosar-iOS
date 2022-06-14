@@ -22,6 +22,19 @@ PODS:
     - MaterialComponents/schemes/Container
     - MaterialComponents/schemes/Typography
     - MaterialComponents/ShadowElevations
+  - MaterialComponents/Buttons (124.2.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/Shadow
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
   - MaterialComponents/Elevation (124.2.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
@@ -79,6 +92,7 @@ DEPENDENCIES:
   - IGListKit (~> 4.0.0)
   - MaterialComponents/BottomNavigation
   - "MaterialComponents/BottomNavigation+Theming"
+  - MaterialComponents/Buttons
 
 SPEC REPOS:
   trunk:
@@ -95,6 +109,6 @@ SPEC CHECKSUMS:
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
 
-PODFILE CHECKSUM: cf8cdc1329ca9d836099f91b7c255d090f0abc27
+PODFILE CHECKSUM: afcc35098d51afdd0bb1539f4207f700914f3c1d
 
 COCOAPODS: 1.11.3
