@@ -8,6 +8,7 @@
 #import "JTKMainController.h"
 
 #import "JTKContainerSchemeHelper.h"
+#import "JTKCreatePostModalController.h"
 #import "JTKHomeController.h"
 
 #import "Masonry.h"
@@ -20,6 +21,52 @@ NSString * const kFloatingActionButtonIcon = @"add-add_symbol";
 CGFloat const kFloatingActionButtonMarginBottom = 16;
 CGFloat const kFloatingActionButtonMarginRight = 16;
 CGSize const kFloatingActionButtonSize = {56, 56};
+
+
+@interface JTKCreatePostModalHandler : NSObject <JTKCreatePostModalDelegate>
+
+@property (nonatomic) UIViewController *presentingViewController;
+
+@property (nonatomic) JTKCreatePostModalController *createPostModalController;
+
+@end
+
+
+@implementation JTKCreatePostModalHandler
+
+- (instancetype)initWithPresentingViewController:(UIViewController *)presentingViewController {
+    self = [super init];
+    if (self) {
+        _presentingViewController = presentingViewController;
+        _createPostModalController = [[JTKCreatePostModalController alloc] init];
+        _createPostModalController.modalDelegate = self;
+        _createPostModalController.modalPresentationStyle = UIModalPresentationFullScreen;
+    }
+    return self;
+}
+
+
+- (void)present {
+    [self.presentingViewController presentViewController:self.createPostModalController animated:YES completion:nil];
+}
+
+
+- (void)reactToCloseButtonTap {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)reactToCreateButtonTapWithInvalidPost {
+    NSLog(@"Reacting to invalid post.");
+}
+
+
+- (void)reactToCreateButtonTapWithValidPost {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+@end
 
 @interface JTKMainController ()
 
@@ -83,6 +130,9 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     [self.view addSubview:self.floatingActionButton];
     UIImage *floatingActionButtonImage = [UIImage imageNamed:kFloatingActionButtonIcon];
     [self.floatingActionButton setImage:floatingActionButtonImage forState:UIControlStateNormal];
+    [self.floatingActionButton addTarget:self
+                                  action:@selector(presentCreatePostModal)
+                        forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -127,6 +177,12 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 
 - (void)bottomNavigationBar:(MDCBottomNavigationBar *)bottomNavigationBar didSelectItem:(UITabBarItem *)item {
     self.selectedIndex = item.tag;
+}
+
+
+- (void)presentCreatePostModal {
+    JTKCreatePostModalHandler *modalHandler = [[JTKCreatePostModalHandler alloc] initWithPresentingViewController:self];
+    [modalHandler present];
 }
 
 
