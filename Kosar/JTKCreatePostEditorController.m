@@ -10,16 +10,18 @@
 #import "JTKCreatePostEditorViewModel.h"
 
 #import "Masonry.h"
+#import "MaterialTextControls+OutlinedTextAreas.h"
 
+NSString *kPostTextFieldLabelText = @"Message";
 NSString *kPostTextFieldPlaceholderText = @"Write your message";
 
 CGFloat const kMargin = 16;
 
-@interface JTKCreatePostEditorController () <UITextFieldDelegate>
+@interface JTKCreatePostEditorController () <UITextViewDelegate>
 
 @property (nonatomic)  JTKCreatePostEditorViewModel *viewModel;
 
-@property (nonatomic) UITextField *postTextField;
+@property (nonatomic) MDCOutlinedTextArea *postTextField;
 
 @end
 
@@ -51,12 +53,13 @@ CGFloat const kMargin = 16;
 
 
 - (void)buildPostTextField {
-    self.postTextField = [[UITextField alloc] init];
+    self.postTextField = [[MDCOutlinedTextArea alloc] init];
     [self.view addSubview:self.postTextField];
-    self.postTextField.text = self.viewModel.text;
+    self.postTextField.label.text = kPostTextFieldLabelText;
+    self.postTextField.textView.text = self.viewModel.text;
     self.postTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     self.postTextField.placeholder = kPostTextFieldPlaceholderText;
-    self.postTextField.delegate = self;
+    self.postTextField.textView.delegate = self;
 }
 
 
@@ -69,12 +72,13 @@ CGFloat const kMargin = 16;
     [self.postTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(margin);
     }];
+    self.postTextField.preferredContainerHeight = self.view.bounds.size.height - margin.top - margin.bottom;
 }
 
 
-- (BOOL)textField:(UITextField *)textField
-        shouldChangeCharactersInRange:(NSRange)range
-                    replacementString:(NSString *)string {
+- (BOOL)textView:(UITextView *)textView
+        shouldChangeTextInRange:(NSRange)range
+                replacementText:(NSString *)string {
     NSString *updatedString = [self.viewModel.text stringByReplacingCharactersInRange:range withString:string];
     self.viewModel.text = updatedString;
     return YES;
