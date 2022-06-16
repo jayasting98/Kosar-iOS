@@ -11,6 +11,7 @@ target 'Kosar' do
   pod 'MaterialComponents/BottomNavigation'
   pod 'MaterialComponents/BottomNavigation+Theming'
   pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/TextControls+OutlinedTextAreas'
 
   target 'KosarTests' do
     inherit! :search_paths
