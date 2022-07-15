@@ -21,5 +21,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>SERVER_URL</key>
+	<string>${SERVER_URL}</string>
 </dict>
 </plist>
