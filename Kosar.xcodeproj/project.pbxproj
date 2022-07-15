@@ -653,6 +653,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayasting98.Kosar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVER_URL = "http://localhost:5001/kosar-c641f/us-central1/v1";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -680,6 +681,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayasting98.Kosar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVER_URL = "http://localhost:5001/kosar-c641f/us-central1/v1";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
