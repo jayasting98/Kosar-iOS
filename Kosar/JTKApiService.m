@@ -9,6 +9,12 @@
 
 static NSString * const kServerUrlBuildSettingKey = @"SERVER_URL";
 
+static NSString * const kHttpPostMethod = @"POST";
+
+static NSString * const kContentTypeHeader = @"Content-Type";
+
+static NSString * const kJsonContentType = @"application/json";
+
 @interface JTKApiService ()
 
 @property (nonatomic, readonly) NSString *baseUrlString;
@@ -32,6 +38,20 @@ static NSString * const kServerUrlBuildSettingKey = @"SERVER_URL";
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:completionHandler];
     [dataTask resume];
+}
+
+
+- (void)postToPath:(NSString *)path
+                 withBody:(NSData *)body
+    withCompletionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
+    NSMutableString *urlString = [NSMutableString stringWithString:self.baseUrlString];
+    [urlString appendString:path];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:kHttpPostMethod];
+    [request setValue:kJsonContentType forHTTPHeaderField:kContentTypeHeader];
+    [request setHTTPBody:body];
+    [self sendRequest:request withCompletionHandler:completionHandler];
 }
 
 
