@@ -11,4 +11,8 @@
 
 + (instancetype)sharedInstance;
 
+- (void)postToPath:(NSString *)path
+                 withBody:(NSData *)body
+    withCompletionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
+
 @end
