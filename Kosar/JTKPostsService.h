@@ -7,8 +7,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class JTKPost;
+
 @interface JTKPostsService : NSObject
 
 + (instancetype)sharedInstance;
+
+- (void)createPost:(JTKPost *)post
+    withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+    withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+        withSuccessHandler:(void (^)(JTKPost *))successHandler;
 
 @end
