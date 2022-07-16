@@ -7,6 +7,9 @@
 
 #import "JTKCreatePostEditorViewModel.h"
 
+#import "JTKPost.h"
+#import "JTKPostsService.h"
+
 @interface JTKCreatePostEditorViewModel ()
 
 @end
@@ -28,7 +31,12 @@
 
 
 - (void)createPost {
-    NSLog(@"Creating post with text \"%@\".", self.text);
+    JTKPost *post = [[JTKPost alloc] init];
+    post.text = self.text;
+    [[JTKPostsService sharedInstance] createPost:post
+                          withClientErrorHandler:nil
+                          withServerErrorHandler:nil
+                              withSuccessHandler:nil];
 }
 
 
