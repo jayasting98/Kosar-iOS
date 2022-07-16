@@ -48,21 +48,7 @@ static NSString * const kPostMessagePostDataKey = @"message";
         kPostMessagePostDataKey: post.text,
     };
     NSData *postData = [NSJSONSerialization dataWithJSONObject:postDataDictionary options:0 error:nil];
-    void (^completionHandler)(NSData *, NSURLResponse *, NSError *);
-    completionHandler = ^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error) {
-            if (clientErrorHandler) {
-                clientErrorHandler(error);
-            }
-            return;
-        }
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-        if (httpResponse.statusCode < 200 || httpResponse.statusCode >= 300) {
-            if (serverErrorHandler) {
-                serverErrorHandler(httpResponse);
-            }
-            return;
-        }
+    void (^successDataHandler)(NSData *) = ^(NSData *data){
         if (!successHandler) {
             return;
         }
@@ -75,7 +61,9 @@ static NSString * const kPostMessagePostDataKey = @"message";
     NSString *completePath = [self createCompletePathWithRelativePath:kCreatePostRelativePath];
     [[JTKApiService sharedInstance] postToPath:completePath
                                       withBody:postData
-                         withCompletionHandler:completionHandler];
+                        withClientErrorHandler:clientErrorHandler
+                        withServerErrorHandler:serverErrorHandler
+                            withSuccessHandler:successDataHandler];
 }
 
 
