@@ -11,6 +11,9 @@
 		2B17A7C428532CC800B73DF7 /* JTKPostsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B17A7C328532CC800B73DF7 /* JTKPostsViewModel.m */; };
 		2B17A7C728532DC000B73DF7 /* JTKPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B17A7C628532DC000B73DF7 /* JTKPost.m */; };
 		2B17A7CA2853300F00B73DF7 /* JTKPostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B17A7C92853300F00B73DF7 /* JTKPostViewModel.m */; };
+		2B17A7CD2859640800B73DF7 /* JTKCreatePostEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B17A7CC2859640800B73DF7 /* JTKCreatePostEditorController.m */; };
+		2B17A7D028597B4900B73DF7 /* JTKCreatePostModalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B17A7CF28597B4900B73DF7 /* JTKCreatePostModalController.m */; };
+		2B17A7D3285ADFDD00B73DF7 /* JTKCreatePostEditorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B17A7D2285ADFDD00B73DF7 /* JTKCreatePostEditorViewModel.m */; };
 		2B4473E828471E5A00DCC67D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4473E728471E5A00DCC67D /* AppDelegate.m */; };
 		2B4473EB28471E5A00DCC67D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4473EA28471E5A00DCC67D /* SceneDelegate.m */; };
 		2B4473EE28471E5A00DCC67D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4473ED28471E5A00DCC67D /* ViewController.m */; };
@@ -56,6 +59,12 @@
 		2B17A7C628532DC000B73DF7 /* JTKPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKPost.m; sourceTree = "<group>"; };
 		2B17A7C82853300F00B73DF7 /* JTKPostViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKPostViewModel.h; sourceTree = "<group>"; };
 		2B17A7C92853300F00B73DF7 /* JTKPostViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKPostViewModel.m; sourceTree = "<group>"; };
+		2B17A7CB2859640800B73DF7 /* JTKCreatePostEditorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKCreatePostEditorController.h; sourceTree = "<group>"; };
+		2B17A7CC2859640800B73DF7 /* JTKCreatePostEditorController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKCreatePostEditorController.m; sourceTree = "<group>"; };
+		2B17A7CE28597B4900B73DF7 /* JTKCreatePostModalController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKCreatePostModalController.h; sourceTree = "<group>"; };
+		2B17A7CF28597B4900B73DF7 /* JTKCreatePostModalController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKCreatePostModalController.m; sourceTree = "<group>"; };
+		2B17A7D1285ADFDD00B73DF7 /* JTKCreatePostEditorViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKCreatePostEditorViewModel.h; sourceTree = "<group>"; };
+		2B17A7D2285ADFDD00B73DF7 /* JTKCreatePostEditorViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKCreatePostEditorViewModel.m; sourceTree = "<group>"; };
 		2B4473E328471E5A00DCC67D /* Kosar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kosar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4473E628471E5A00DCC67D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B4473E728471E5A00DCC67D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -178,6 +187,12 @@
 				2B17A7C628532DC000B73DF7 /* JTKPost.m */,
 				2B17A7C82853300F00B73DF7 /* JTKPostViewModel.h */,
 				2B17A7C92853300F00B73DF7 /* JTKPostViewModel.m */,
+				2B17A7CB2859640800B73DF7 /* JTKCreatePostEditorController.h */,
+				2B17A7CC2859640800B73DF7 /* JTKCreatePostEditorController.m */,
+				2B17A7CE28597B4900B73DF7 /* JTKCreatePostModalController.h */,
+				2B17A7CF28597B4900B73DF7 /* JTKCreatePostModalController.m */,
+				2B17A7D1285ADFDD00B73DF7 /* JTKCreatePostEditorViewModel.h */,
+				2B17A7D2285ADFDD00B73DF7 /* JTKCreatePostEditorViewModel.m */,
 				2BE9EBF72881BFC600F03C7D /* JTKApiService.h */,
 				2BE9EBF62881BFC600F03C7D /* JTKApiService.m */,
 				2BE9EBFA2881C9FF00F03C7D /* JTKPostsService.h */,
@@ -475,7 +490,10 @@
 				2B17A7C428532CC800B73DF7 /* JTKPostsViewModel.m in Sources */,
 				2BE9EBFB2881C9FF00F03C7D /* JTKPostsService.m in Sources */,
 				2B4474202847412900DCC67D /* JTKHomeController.m in Sources */,
+				2B17A7CD2859640800B73DF7 /* JTKCreatePostEditorController.m in Sources */,
 				2B17A7C728532DC000B73DF7 /* JTKPost.m in Sources */,
+				2B17A7D3285ADFDD00B73DF7 /* JTKCreatePostEditorViewModel.m in Sources */,
+				2B17A7D028597B4900B73DF7 /* JTKCreatePostModalController.m in Sources */,
 				2B4473EB28471E5A00DCC67D /* SceneDelegate.m in Sources */,
 				2B44742928486D0F00DCC67D /* JTKPostCell.m in Sources */,
 			);

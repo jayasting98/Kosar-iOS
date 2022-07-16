@@ -2,6 +2,7 @@ PODS:
   - IGListDiffKit (4.0.0)
   - IGListKit (4.0.0):
     - IGListDiffKit (= 4.0.0)
+  - Masonry (1.1.0)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/BottomNavigation (124.2.0):
@@ -22,6 +23,19 @@ PODS:
     - MaterialComponents/schemes/Container
     - MaterialComponents/schemes/Typography
     - MaterialComponents/ShadowElevations
+  - MaterialComponents/Buttons (124.2.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/Shadow
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
   - MaterialComponents/Elevation (124.2.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
@@ -35,6 +49,19 @@ PODS:
   - MaterialComponents/private/Color (124.2.0):
     - MaterialComponents/Availability
   - MaterialComponents/private/Math (124.2.0)
+  - "MaterialComponents/private/TextControlsPrivate+BaseStyle (124.2.0)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle (124.2.0)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Math
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+  - "MaterialComponents/private/TextControlsPrivate+Shared (124.2.0)":
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+    - "MaterialComponents/TextControls+Enums"
   - MaterialComponents/Ripple (124.2.0):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Availability
@@ -68,6 +95,15 @@ PODS:
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
+  - "MaterialComponents/TextControls+BaseTextAreas (124.2.0)":
+    - "MaterialComponents/private/TextControlsPrivate+BaseStyle"
+    - "MaterialComponents/private/TextControlsPrivate+Shared"
+    - MDFInternationalization
+  - "MaterialComponents/TextControls+Enums (124.2.0)"
+  - "MaterialComponents/TextControls+OutlinedTextAreas (124.2.0)":
+    - MaterialComponents/Availability
+    - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
+    - "MaterialComponents/TextControls+BaseTextAreas"
   - MaterialComponents/Typography (124.2.0):
     - MaterialComponents/private/Application
     - MaterialComponents/private/Math
@@ -77,13 +113,17 @@ PODS:
 
 DEPENDENCIES:
   - IGListKit (~> 4.0.0)
+  - Masonry
   - MaterialComponents/BottomNavigation
   - "MaterialComponents/BottomNavigation+Theming"
+  - MaterialComponents/Buttons
+  - "MaterialComponents/TextControls+OutlinedTextAreas"
 
 SPEC REPOS:
   trunk:
     - IGListDiffKit
     - IGListKit
+    - Masonry
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
@@ -91,10 +131,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
 
-PODFILE CHECKSUM: cf8cdc1329ca9d836099f91b7c255d090f0abc27
+PODFILE CHECKSUM: 5520b091e02ec9894156c5f9e3c9b63129824efc
 
 COCOAPODS: 1.11.3

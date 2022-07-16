@@ -7,8 +7,11 @@ target 'Kosar' do
 
   # Pods for Kosar
   pod 'IGListKit', '~> 4.0.0'
+  pod 'Masonry'
   pod 'MaterialComponents/BottomNavigation'
   pod 'MaterialComponents/BottomNavigation+Theming'
+  pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/TextControls+OutlinedTextAreas'
 
   target 'KosarTests' do
     inherit! :search_paths
