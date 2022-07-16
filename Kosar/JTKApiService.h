@@ -12,7 +12,9 @@
 + (instancetype)sharedInstance;
 
 - (void)postToPath:(NSString *)path
-                 withBody:(NSData *)body
-    withCompletionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
+                  withBody:(NSData *)body
+    withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+    withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+        withSuccessHandler:(void (^)(NSData *))successHandler;
 
 @end
