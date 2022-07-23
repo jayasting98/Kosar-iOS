@@ -57,4 +57,9 @@
 }
 
 
+- (BOOL)isLoggedIn {
+    return [FIRAuth auth].currentUser != nil;
+}
+
+
 @end

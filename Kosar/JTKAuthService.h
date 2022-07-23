@@ -17,6 +17,8 @@
 
 @interface JTKAuthService : NSObject
 
+@property (nonatomic, readonly, getter=isLoggedIn) BOOL loggedIn;
+
 + (instancetype)sharedInstance;
 
 - (void)addLoginStatusObserver:(id<JTKLoginStatusObserver>)loginStatusObserver;
