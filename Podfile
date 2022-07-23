@@ -6,6 +6,7 @@ target 'Kosar' do
   use_frameworks!
 
   # Pods for Kosar
+  pod 'FirebaseAuth'
   pod 'IGListKit', '~> 4.0.0'
   pod 'Masonry'
   pod 'MaterialComponents/BottomNavigation'
