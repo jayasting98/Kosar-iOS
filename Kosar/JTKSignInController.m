@@ -1,14 +1,14 @@
 //
-//  JTKLoginController.m
+//  JTKSignInController.m
 //  Kosar
 //
 //  Created by ByteDance on 23/7/22.
 //
 
-#import "JTKLoginController.h"
+#import "JTKSignInController.h"
 
 #import "JTKContainerSchemeHelper.h"
-#import "JTKLoginViewModel.h"
+#import "JTKSignInViewModel.h"
 
 #import "Masonry.h"
 #import "MaterialButtons.h"
@@ -25,9 +25,9 @@ static NSString * const kSignInButtonLabelText = @"Sign In";
 static NSInteger const kUsernameTextFieldTag = 1;
 static NSInteger const kPasswordTextFieldTag = 2;
 
-@interface JTKLoginController () <UITextFieldDelegate>
+@interface JTKSignInController () <UITextFieldDelegate>
 
-@property (nonatomic) JTKLoginViewModel *viewModel;
+@property (nonatomic) JTKSignInViewModel *viewModel;
 
 @property (nonatomic) MDCOutlinedTextField *usernameTextField;
 @property (nonatomic) MDCOutlinedTextField *passwordTextField;
@@ -35,11 +35,11 @@ static NSInteger const kPasswordTextFieldTag = 2;
 
 @end
 
-@implementation JTKLoginController
+@implementation JTKSignInController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.viewModel = [[JTKLoginViewModel alloc] init];
+    self.viewModel = [[JTKSignInViewModel alloc] init];
     self.view.backgroundColor = UIColor.whiteColor;
     [self enableDismissingKeyboardWhenTappingElsewhere];
     [self buildUsernameTextField];

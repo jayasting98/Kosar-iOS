@@ -16,7 +16,7 @@ static NSInteger const kEmulatorPort = 9099;
 
 @interface JTKAuthService ()
 
-@property (nonatomic) NSMutableSet<id<JTKLoginStatusObserver>> *loginStatusObservers;
+@property (nonatomic) NSMutableSet<id<JTKAuthenticationStateObserver>> *authenticationStateObservers;
 
 @end
 
@@ -38,15 +38,15 @@ static NSInteger const kEmulatorPort = 9099;
 #ifdef DEBUG
         [[FIRAuth auth] useEmulatorWithHost:kEmulatorHostUrl port:kEmulatorPort];
 #endif
-        _loginStatusObservers = [[NSMutableSet alloc] init];
+        _authenticationStateObservers = [[NSMutableSet alloc] init];
         [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
             if (user) {
-                for (id<JTKLoginStatusObserver> loginStatusObserver in self.loginStatusObservers) {
-                    [loginStatusObserver reactToLogin];
+                for (id<JTKAuthenticationStateObserver> observer in self.authenticationStateObservers) {
+                    [observer reactToSignIn];
                 }
             } else {
-                for (id<JTKLoginStatusObserver> loginStatusObserver in self.loginStatusObservers) {
-                    [loginStatusObserver reactToLogout];
+                for (id<JTKAuthenticationStateObserver> observer in self.authenticationStateObservers) {
+                    [observer reactToSignOut];
                 }
             }
         }];
@@ -55,13 +55,13 @@ static NSInteger const kEmulatorPort = 9099;
 }
 
 
-- (void)addLoginStatusObserver:(id<JTKLoginStatusObserver>)loginStatusObserver {
-    [self.loginStatusObservers addObject:loginStatusObserver];
+- (void)addAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer {
+    [self.authenticationStateObservers addObject:observer];
 }
 
 
-- (void)removeLoginStatusObserver:(id<JTKLoginStatusObserver>)loginStatusObserver {
-    [self.loginStatusObservers removeObject:loginStatusObserver];
+- (void)removeAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer {
+    [self.authenticationStateObservers removeObject:observer];
 }
 
 
@@ -70,7 +70,7 @@ static NSInteger const kEmulatorPort = 9099;
 }
 
 
-- (BOOL)isLoggedIn {
+- (BOOL)isSignedIn {
     return [FIRAuth auth].currentUser != nil;
 }
 

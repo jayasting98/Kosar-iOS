@@ -1,22 +1,22 @@
 //
-//  JTKLoginViewModel.m
+//  JTKSignInViewModel.m
 //  Kosar
 //
 //  Created by ByteDance on 23/7/22.
 //
 
-#import "JTKLoginViewModel.h"
+#import "JTKSignInViewModel.h"
 
 #import "JTKAuthService.h"
 #import "JTKSession.h"
 #import "JTKSessionsService.h"
 #import "JTKUsernameCredentials.h"
 
-@interface JTKLoginViewModel ()
+@interface JTKSignInViewModel ()
 
 @end
 
-@implementation JTKLoginViewModel
+@implementation JTKSignInViewModel
 
 - (void)signIn {
     JTKUsernameCredentials *usernameCredentials = [[JTKUsernameCredentials alloc] init];

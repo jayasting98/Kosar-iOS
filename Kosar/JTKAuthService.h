@@ -7,22 +7,22 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol JTKLoginStatusObserver <NSObject>
+@protocol JTKAuthenticationStateObserver <NSObject>
 
-- (void)reactToLogin;
+- (void)reactToSignIn;
 
-- (void)reactToLogout;
+- (void)reactToSignOut;
 
 @end
 
 @interface JTKAuthService : NSObject
 
-@property (nonatomic, readonly, getter=isLoggedIn) BOOL loggedIn;
+@property (nonatomic, readonly, getter=isSignedIn) BOOL signedIn;
 
 + (instancetype)sharedInstance;
 
-- (void)addLoginStatusObserver:(id<JTKLoginStatusObserver>)loginStatusObserver;
-- (void)removeLoginStatusObserver:(id<JTKLoginStatusObserver>)loginStatusObserver;
+- (void)addAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer;
+- (void)removeAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer;
 - (void)signInUsingAuthenticationToken:(NSString *)authenticationToken;
 
 @end

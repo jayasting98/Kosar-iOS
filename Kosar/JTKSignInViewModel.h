@@ -1,5 +1,5 @@
 //
-//  JTKLoginViewModel.h
+//  JTKSignInViewModel.h
 //  Kosar
 //
 //  Created by ByteDance on 23/7/22.
@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JTKLoginViewModel : NSObject
+@interface JTKSignInViewModel : NSObject
 
 @property (nonatomic) NSString *username;
 @property (nonatomic) NSString *password;
