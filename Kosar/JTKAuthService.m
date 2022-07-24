@@ -9,6 +9,11 @@
 
 #import "FirebaseAuth.h"
 
+#ifdef DEBUG
+static NSString * const kEmulatorHostUrl = @"localhost";
+static NSInteger const kEmulatorPort = 9099;
+#endif
+
 @interface JTKAuthService ()
 
 @property (nonatomic) NSMutableSet<id<JTKLoginStatusObserver>> *loginStatusObservers;
@@ -30,6 +35,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+#ifdef DEBUG
+        [[FIRAuth auth] useEmulatorWithHost:kEmulatorHostUrl port:kEmulatorPort];
+#endif
         _loginStatusObservers = [[NSMutableSet alloc] init];
         [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth * _Nonnull auth, FIRUser * _Nullable user) {
             if (user) {
