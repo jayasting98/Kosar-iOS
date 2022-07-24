@@ -93,6 +93,9 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 
 
 - (void)present {
+    if ([self.signInController isBeingPresented]) {
+        return;
+    }
     [self.presentingViewController presentViewController:self.signInController animated:YES completion:nil];
 }
 
