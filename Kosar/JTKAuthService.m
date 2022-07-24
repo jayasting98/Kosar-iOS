@@ -70,6 +70,11 @@ static NSInteger const kEmulatorPort = 9099;
 }
 
 
+- (void)signOut {
+    [[FIRAuth auth] signOut:nil];
+}
+
+
 - (BOOL)isSignedIn {
     return [FIRAuth auth].currentUser != nil;
 }

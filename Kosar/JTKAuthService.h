@@ -24,5 +24,6 @@
 - (void)addAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer;
 - (void)removeAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer;
 - (void)signInUsingAuthenticationToken:(NSString *)authenticationToken;
+- (void)signOut;
 
 @end
