@@ -12,6 +12,7 @@ target 'Kosar' do
   pod 'MaterialComponents/BottomNavigation'
   pod 'MaterialComponents/BottomNavigation+Theming'
   pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/Buttons+Theming'
   pod 'MaterialComponents/TextControls+OutlinedTextAreas'
   pod 'MaterialComponents/TextControls+OutlinedTextFields'
 

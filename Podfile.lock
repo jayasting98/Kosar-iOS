@@ -73,6 +73,22 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
+  - "MaterialComponents/Buttons+ColorThemer (124.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Color
+  - "MaterialComponents/Buttons+ShapeThemer (124.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Shape
+  - "MaterialComponents/Buttons+Theming (124.2.0)":
+    - MaterialComponents/Buttons
+    - "MaterialComponents/Buttons+ColorThemer"
+    - "MaterialComponents/Buttons+ShapeThemer"
+    - "MaterialComponents/Buttons+TypographyThemer"
+    - MaterialComponents/schemes/Container
+    - MaterialComponents/ShadowElevations
+  - "MaterialComponents/Buttons+TypographyThemer (124.2.0)":
+    - MaterialComponents/Buttons
+    - MaterialComponents/schemes/Typography
   - MaterialComponents/Elevation (124.2.0):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
@@ -173,6 +189,7 @@ DEPENDENCIES:
   - MaterialComponents/BottomNavigation
   - "MaterialComponents/BottomNavigation+Theming"
   - MaterialComponents/Buttons
+  - "MaterialComponents/Buttons+Theming"
   - "MaterialComponents/TextControls+OutlinedTextAreas"
   - "MaterialComponents/TextControls+OutlinedTextFields"
 
@@ -211,6 +228,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
 
-PODFILE CHECKSUM: b8ebea2ff35d5c38b5904fa6f088a5aef98c4f81
+PODFILE CHECKSUM: 68d40a5bc3c6674c6f89558eea4e6cb2d9ac120a
 
 COCOAPODS: 1.11.3
