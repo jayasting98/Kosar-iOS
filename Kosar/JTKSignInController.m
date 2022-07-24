@@ -48,6 +48,12 @@ static NSInteger const kPasswordTextFieldTag = 2;
 }
 
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self resetTextFields];
+}
+
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self layoutUsernameTextField];
@@ -124,6 +130,12 @@ static NSInteger const kPasswordTextFieldTag = 2;
             break;
     }
     return YES;
+}
+
+
+- (void)resetTextFields {
+    self.usernameTextField.text = @"";
+    self.passwordTextField.text = @"";
 }
 
 
