@@ -12,4 +12,6 @@
 @property (nonatomic) NSString *username;
 @property (nonatomic) NSString *password;
 
+- (void)signIn;
+
 @end

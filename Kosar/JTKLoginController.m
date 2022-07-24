@@ -98,6 +98,7 @@ static NSInteger const kPasswordTextFieldTag = 2;
     [self.view addSubview:self.signInButton];
     [self.signInButton setTitle:kSignInButtonLabelText forState:UIControlStateNormal];
     [self.signInButton applyContainedThemeWithScheme:[JTKContainerSchemeHelper getContainerScheme]];
+    [self.signInButton addTarget:self.viewModel action:@selector(signIn) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
