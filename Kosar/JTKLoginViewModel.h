@@ -9,4 +9,7 @@
 
 @interface JTKLoginViewModel : NSObject
 
+@property (nonatomic) NSString *username;
+@property (nonatomic) NSString *password;
+
 @end

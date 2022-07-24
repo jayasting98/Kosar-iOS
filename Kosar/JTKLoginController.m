@@ -8,6 +8,7 @@
 #import "JTKLoginController.h"
 
 #import "JTKContainerSchemeHelper.h"
+#import "JTKLoginViewModel.h"
 
 #import "Masonry.h"
 #import "MaterialButtons.h"
@@ -21,7 +22,12 @@ static NSString * const kUsernameTextFieldLabelText = @"Username";
 static NSString * const kPasswordTextFieldLabelText = @"Password";
 static NSString * const kSignInButtonLabelText = @"Sign In";
 
-@interface JTKLoginController ()
+static NSInteger const kUsernameTextFieldTag = 1;
+static NSInteger const kPasswordTextFieldTag = 2;
+
+@interface JTKLoginController () <UITextFieldDelegate>
+
+@property (nonatomic) JTKLoginViewModel *viewModel;
 
 @property (nonatomic) MDCOutlinedTextField *usernameTextField;
 @property (nonatomic) MDCOutlinedTextField *passwordTextField;
@@ -33,6 +39,7 @@ static NSString * const kSignInButtonLabelText = @"Sign In";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.viewModel = [[JTKLoginViewModel alloc] init];
     self.view.backgroundColor = UIColor.whiteColor;
     [self enableDismissingKeyboardWhenTappingElsewhere];
     [self buildUsernameTextField];
@@ -53,6 +60,8 @@ static NSString * const kSignInButtonLabelText = @"Sign In";
     self.usernameTextField = [[MDCOutlinedTextField alloc] init];
     [self.view addSubview:self.usernameTextField];
     self.usernameTextField.label.text = kUsernameTextFieldLabelText;
+    self.usernameTextField.delegate = self;
+    self.usernameTextField.tag = kUsernameTextFieldTag;
 }
 
 
@@ -70,6 +79,8 @@ static NSString * const kSignInButtonLabelText = @"Sign In";
     [self.view addSubview:self.passwordTextField];
     self.passwordTextField.label.text = kPasswordTextFieldLabelText;
     self.passwordTextField.secureTextEntry = YES;
+    self.passwordTextField.delegate = self;
+    self.passwordTextField.tag = kPasswordTextFieldTag;
 }
 
 
@@ -96,6 +107,22 @@ static NSString * const kSignInButtonLabelText = @"Sign In";
         make.right.equalTo(self.view).with.insets(margin);
         make.top.equalTo(self.passwordTextField.mas_bottom).with.offset(kYGutter);
     }];
+}
+
+
+- (BOOL)textField:(UITextField *)textField
+        shouldChangeCharactersInRange:(NSRange)range
+                    replacementString:(NSString *)string {
+    NSString *updatedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    switch (textField.tag) {
+        case kUsernameTextFieldTag:
+            self.viewModel.username = updatedString;
+            break;
+        case kPasswordTextFieldTag:
+            self.viewModel.password = updatedString;
+            break;
+    }
+    return YES;
 }
 
 
