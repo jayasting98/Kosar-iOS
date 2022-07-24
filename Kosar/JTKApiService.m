@@ -64,18 +64,36 @@ static NSString * const kJsonContentType = @"application/json";
 
 
 - (void)postToPath:(NSString *)path
-                  withBody:(NSData *)body
-    withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
-    withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
-        withSuccessHandler:(void (^)(NSData *))successHandler {
+                withQueryItems:(NSArray<NSURLQueryItem *> *)queryItems
+                      withBody:(NSData *)body
+        withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+        withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+            withSuccessHandler:(void (^)(NSData *))successHandler {
     NSMutableString *urlString = [NSMutableString stringWithString:self.baseUrlString];
     [urlString appendString:path];
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:urlString];
+    [urlComponents setQueryItems:queryItems];
+    NSURL *url = [urlComponents URL];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:kHttpPostMethod];
     [request setValue:kJsonContentType forHTTPHeaderField:kContentTypeHeader];
     [request setHTTPBody:body];
     [self sendRequest:request
+        withClientErrorHandler:clientErrorHandler
+        withServerErrorHandler:serverErrorHandler
+            withSuccessHandler:successHandler];
+}
+
+
+- (void)postToPath:(NSString *)path
+                      withBody:(NSData *)body
+        withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+        withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+            withSuccessHandler:(void (^)(NSData *))successHandler {
+    NSArray<NSURLQueryItem *> *queryItems = @[];
+    [self postToPath:path
+                withQueryItems:queryItems
+                      withBody:body
         withClientErrorHandler:clientErrorHandler
         withServerErrorHandler:serverErrorHandler
             withSuccessHandler:successHandler];
