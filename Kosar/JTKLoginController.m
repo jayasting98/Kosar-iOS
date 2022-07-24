@@ -34,6 +34,7 @@ static NSString * const kSignInButtonLabelText = @"Sign In";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
+    [self enableDismissingKeyboardWhenTappingElsewhere];
     [self buildUsernameTextField];
     [self buildPasswordTextField];
     [self buildSignInButton];
@@ -95,6 +96,20 @@ static NSString * const kSignInButtonLabelText = @"Sign In";
         make.right.equalTo(self.view).with.insets(margin);
         make.top.equalTo(self.passwordTextField.mas_bottom).with.offset(kYGutter);
     }];
+}
+
+
+- (void)enableDismissingKeyboardWhenTappingElsewhere {
+    UITapGestureRecognizer *tapGestureRecognizer =
+            [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                    action:@selector(stopEditingWhenTappingElsewhere:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+}
+
+
+- (void)stopEditingWhenTappingElsewhere:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
 }
 
 
