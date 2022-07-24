@@ -23,5 +23,6 @@
 
 - (void)addLoginStatusObserver:(id<JTKLoginStatusObserver>)loginStatusObserver;
 - (void)removeLoginStatusObserver:(id<JTKLoginStatusObserver>)loginStatusObserver;
+- (void)signInUsingAuthenticationToken:(NSString *)authenticationToken;
 
 @end

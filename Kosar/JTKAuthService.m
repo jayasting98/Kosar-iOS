@@ -57,6 +57,11 @@
 }
 
 
+- (void)signInUsingAuthenticationToken:(NSString *)authenticationToken {
+    [[FIRAuth auth] signInWithCustomToken:authenticationToken completion:nil];
+}
+
+
 - (BOOL)isLoggedIn {
     return [FIRAuth auth].currentUser != nil;
 }
