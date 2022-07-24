@@ -7,9 +7,11 @@
 
 #import "JTKMainController.h"
 
+#import "JTKAuthService.h"
 #import "JTKContainerSchemeHelper.h"
 #import "JTKCreatePostModalController.h"
 #import "JTKHomeController.h"
+#import "JTKLoginController.h"
 
 #import "Masonry.h"
 #import "MaterialBottomNavigation+Theming.h"
@@ -68,7 +70,49 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 
 @end
 
+
+@interface JTKLoginModalHandler : NSObject <JTKLoginStatusObserver>
+
+@property (nonatomic, weak) UIViewController *presentingViewController;
+
+@property (nonatomic) JTKLoginController *loginController;
+
+@end
+
+@implementation JTKLoginModalHandler
+
+- (instancetype)initWithPresentingViewController:(UIViewController *)presentingViewController {
+    self = [super init];
+    if (self) {
+        _presentingViewController = presentingViewController;
+        _loginController = [[JTKLoginController alloc] init];
+        _loginController.modalPresentationStyle = UIModalPresentationFullScreen;
+    }
+    return self;
+}
+
+
+- (void)present {
+    [self.presentingViewController presentViewController:self.loginController animated:YES completion:nil];
+}
+
+
+- (void)reactToLogin {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)reactToLogout {
+    [self present];
+}
+
+
+@end
+
+
 @interface JTKMainController ()
+
+@property (nonatomic) JTKLoginModalHandler *loginModalHandler;
 
 @property (nonatomic) MDCBottomNavigationBar *bottomNavigationBar;
 @property (nonatomic) MDCFloatingButton *floatingActionButton;
@@ -80,6 +124,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.loginModalHandler = [[JTKLoginModalHandler alloc] initWithPresentingViewController:self];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self buildBottomNavigationBar];
     self.viewControllers = @[
@@ -164,6 +209,21 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self adjustAdditionalSafeAreaInsetsDueToBottomNavigationBar];
+    [self enableReactingToLogins];
+    [self presentLoginModalIfNecessary];
+}
+
+
+- (void)enableReactingToLogins {
+    [[JTKAuthService sharedInstance] addLoginStatusObserver:self.loginModalHandler];
+}
+
+
+- (void)presentLoginModalIfNecessary {
+    if ([[JTKAuthService sharedInstance] isLoggedIn]) {
+        return;
+    }
+    [self.loginModalHandler present];
 }
 
 
