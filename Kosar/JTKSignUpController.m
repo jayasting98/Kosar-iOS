@@ -40,6 +40,7 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
+    [self enableDismissingKeyboardWhenTappingElsewhere];
     [self buildEmailAddressTextField];
     [self buildUsernameTextField];
     [self buildPasswordTextField];
@@ -143,6 +144,20 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.signUpButton.mas_bottom).with.offset(kYGutter);
     }];
+}
+
+
+- (void)enableDismissingKeyboardWhenTappingElsewhere {
+    UITapGestureRecognizer *tapGestureRecognizer =
+            [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                    action:@selector(stopEditingWhenTappingElsewhere:)];
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+}
+
+
+- (void)stopEditingWhenTappingElsewhere:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
 }
 
 
