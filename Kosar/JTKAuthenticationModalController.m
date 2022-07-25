@@ -25,6 +25,7 @@
     self.signInController.modalDelegate = self;
     self.signUpController = [[JTKSignUpController alloc] init];
     self.signUpController.modalDelegate = self;
+    [self switchToSignInController];
 }
 
 
