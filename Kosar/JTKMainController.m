@@ -8,10 +8,10 @@
 #import "JTKMainController.h"
 
 #import "JTKAuthService.h"
+#import "JTKAuthenticationModalController.h"
 #import "JTKContainerSchemeHelper.h"
 #import "JTKCreatePostModalController.h"
 #import "JTKHomeController.h"
-#import "JTKSignInController.h"
 
 #import "Masonry.h"
 #import "MaterialBottomNavigation+Theming.h"
@@ -71,32 +71,32 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 @end
 
 
-@interface JTKSignInModalHandler : NSObject <JTKAuthenticationStateObserver>
+@interface JTKAuthenticationModalHandler : NSObject <JTKAuthenticationStateObserver>
 
 @property (nonatomic, weak) UIViewController *presentingViewController;
 
-@property (nonatomic) JTKSignInController *signInController;
+@property (nonatomic) JTKAuthenticationModalController *authenticationModalController;
 
 @end
 
-@implementation JTKSignInModalHandler
+@implementation JTKAuthenticationModalHandler
 
 - (instancetype)initWithPresentingViewController:(UIViewController *)presentingViewController {
     self = [super init];
     if (self) {
         _presentingViewController = presentingViewController;
-        _signInController = [[JTKSignInController alloc] init];
-        _signInController.modalPresentationStyle = UIModalPresentationFullScreen;
+        _authenticationModalController = [[JTKAuthenticationModalController alloc] init];
+        _authenticationModalController.modalPresentationStyle = UIModalPresentationFullScreen;
     }
     return self;
 }
 
 
 - (void)present {
-    if ([self.signInController isBeingPresented]) {
+    if ([self.authenticationModalController isBeingPresented]) {
         return;
     }
-    [self.presentingViewController presentViewController:self.signInController animated:YES completion:nil];
+    [self.presentingViewController presentViewController:self.authenticationModalController animated:YES completion:nil];
 }
 
 
@@ -115,7 +115,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 
 @interface JTKMainController ()
 
-@property (nonatomic) JTKSignInModalHandler *signInModalHandler;
+@property (nonatomic) JTKAuthenticationModalHandler *authenticationModalHandler;
 
 @property (nonatomic) MDCBottomNavigationBar *bottomNavigationBar;
 @property (nonatomic) MDCFloatingButton *floatingActionButton;
@@ -127,7 +127,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.signInModalHandler = [[JTKSignInModalHandler alloc] initWithPresentingViewController:self];
+    self.authenticationModalHandler = [[JTKAuthenticationModalHandler alloc] initWithPresentingViewController:self];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self buildBottomNavigationBar];
     self.viewControllers = @[
@@ -213,20 +213,20 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     [super viewDidAppear:animated];
     [self adjustAdditionalSafeAreaInsetsDueToBottomNavigationBar];
     [self enableReactingToSignIn];
-    [self presentSignInModalIfNecessary];
+    [self presentAuthenticationModalIfNecessary];
 }
 
 
 - (void)enableReactingToSignIn {
-    [[JTKAuthService sharedInstance] addAuthenticationStateObserver:self.signInModalHandler];
+    [[JTKAuthService sharedInstance] addAuthenticationStateObserver:self.authenticationModalHandler];
 }
 
 
-- (void)presentSignInModalIfNecessary {
+- (void)presentAuthenticationModalIfNecessary {
     if ([[JTKAuthService sharedInstance] isSignedIn]) {
         return;
     }
-    [self.signInModalHandler present];
+    [self.authenticationModalHandler present];
 }
 
 
