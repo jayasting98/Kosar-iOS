@@ -7,6 +7,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol JTKSignUpModalDelegate <NSObject>
+
+- (void)reactToGoSignInButtonTap;
+
+@end
+
 @interface JTKSignUpController : UIViewController
+
+@property (nonatomic, weak) id<JTKSignUpModalDelegate> modalDelegate;
 
 @end

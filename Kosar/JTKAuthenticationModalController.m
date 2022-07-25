@@ -10,7 +10,7 @@
 #import "JTKSignInController.h"
 #import "JTKSignUpController.h"
 
-@interface JTKAuthenticationModalController () <JTKSignInModalDelegate>
+@interface JTKAuthenticationModalController () <JTKSignInModalDelegate, JTKSignUpModalDelegate>
 
 @property (nonatomic) JTKSignInController *signInController;
 @property (nonatomic) JTKSignUpController *signUpController;
@@ -24,11 +24,17 @@
     self.signInController = [[JTKSignInController alloc] init];
     self.signInController.modalDelegate = self;
     self.signUpController = [[JTKSignUpController alloc] init];
+    self.signUpController.modalDelegate = self;
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    [self switchToSignInController];
+}
+
+
+- (void)reactToGoSignInButtonTap {
     [self switchToSignInController];
 }
 

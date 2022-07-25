@@ -21,6 +21,9 @@ static NSString * const kEmailAddressTextFieldLabelText = @"Email Address";
 static NSString * const kUsernameTextFieldLabelText = @"Username";
 static NSString * const kPasswordTextFieldLabelText = @"Password";
 static NSString * const kSignUpButtonLabelText = @"Sign Up";
+static NSString * const kGoSignInButtonLabelText = @"I already have an account";
+
+static CGFloat const kGoSignInButtonLabelFontSize = 12;
 
 @interface JTKSignUpController ()
 
@@ -28,6 +31,7 @@ static NSString * const kSignUpButtonLabelText = @"Sign Up";
 @property (nonatomic) MDCOutlinedTextField *usernameTextField;
 @property (nonatomic) MDCOutlinedTextField *passwordTextField;
 @property (nonatomic) MDCButton *signUpButton;
+@property (nonatomic) UIButton *goSignInButton;
 
 @end
 
@@ -40,6 +44,7 @@ static NSString * const kSignUpButtonLabelText = @"Sign Up";
     [self buildUsernameTextField];
     [self buildPasswordTextField];
     [self buildSignUpButton];
+    [self buildGoSignInButton];
 }
 
 
@@ -49,6 +54,7 @@ static NSString * const kSignUpButtonLabelText = @"Sign Up";
     [self layoutUsernameTextField];
     [self layoutPasswordTextField];
     [self layoutSignUpButton];
+    [self layoutGoSignInButton];
 }
 
 
@@ -116,6 +122,26 @@ static NSString * const kSignUpButtonLabelText = @"Sign Up";
     [self.signUpButton mas_updateConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view).with.insets(margin);
         make.top.equalTo(self.passwordTextField.mas_bottom).with.offset(kYGutter);
+    }];
+}
+
+
+- (void)buildGoSignInButton {
+    self.goSignInButton = [[UIButton alloc] init];
+    [self.view addSubview:self.goSignInButton];
+    [self.goSignInButton setTitle:kGoSignInButtonLabelText forState:UIControlStateNormal];
+    [self.goSignInButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+    [self.goSignInButton.titleLabel setFont:[UIFont systemFontOfSize:kGoSignInButtonLabelFontSize]];
+    [self.goSignInButton addTarget:self.modalDelegate
+                            action:@selector(reactToGoSignInButtonTap)
+                  forControlEvents:UIControlEventTouchUpInside];
+}
+
+
+- (void)layoutGoSignInButton {
+    [self.goSignInButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.signUpButton.mas_bottom).with.offset(kYGutter);
     }];
 }
 
