@@ -7,6 +7,8 @@
 
 #import "JTKApiService.h"
 
+#import "JTKAuthService.h"
+
 static NSString * const kServerUrlBuildSettingKey = @"SERVER_URL";
 
 static NSString * const kHttpPostMethod = @"POST";
@@ -14,6 +16,9 @@ static NSString * const kHttpPostMethod = @"POST";
 static NSString * const kContentTypeHeader = @"Content-Type";
 
 static NSString * const kJsonContentType = @"application/json";
+
+static NSString * const kAuthorizationHeaderField = @"Authorization";
+static NSString * const kBearerAuthorizationHeaderValueTemplate = @"Bearer %@";
 
 @interface JTKApiService ()
 
@@ -97,6 +102,49 @@ static NSString * const kJsonContentType = @"application/json";
         withClientErrorHandler:clientErrorHandler
         withServerErrorHandler:serverErrorHandler
             withSuccessHandler:successHandler];
+}
+
+
+- (void)postWithAuthorizationToPath:(NSString *)path
+                     withQueryItems:(NSArray<NSURLQueryItem *> *)queryItems
+                           withBody:(NSData *)body
+             withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+             withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+                 withSuccessHandler:(void (^)(NSData *))successHandler {
+    NSMutableString *urlString = [NSMutableString stringWithString:self.baseUrlString];
+    [urlString appendString:path];
+    NSURLComponents *urlComponents = [NSURLComponents componentsWithString:urlString];
+    [urlComponents setQueryItems:queryItems];
+    NSURL *url = [urlComponents URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:kHttpPostMethod];
+    [request setValue:kJsonContentType forHTTPHeaderField:kContentTypeHeader];
+    [request setHTTPBody:body];
+    void (^bearerTokenHandler)(NSString *) = ^(NSString *bearerToken) {
+        NSString *authorizationHeaderValue =
+                [NSString stringWithFormat:kBearerAuthorizationHeaderValueTemplate, bearerToken];
+        [request setValue:authorizationHeaderValue forHTTPHeaderField:kAuthorizationHeaderField];
+        [self sendRequest:request
+            withClientErrorHandler:clientErrorHandler
+            withServerErrorHandler:serverErrorHandler
+                withSuccessHandler:successHandler];
+    };
+    [[JTKAuthService sharedInstance] getBearerTokenWithHandler:bearerTokenHandler];
+}
+
+
+- (void)postWithAuthorizationToPath:(NSString *)path
+                           withBody:(NSData *)body
+             withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+             withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+                 withSuccessHandler:(void (^)(NSData *))successHandler {
+    NSArray<NSURLQueryItem *> *queryItems = @[];
+    [self postWithAuthorizationToPath:path
+                       withQueryItems:queryItems
+                             withBody:body
+               withClientErrorHandler:clientErrorHandler
+               withServerErrorHandler:serverErrorHandler
+                   withSuccessHandler:successHandler];
 }
 
 

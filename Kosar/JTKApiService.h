@@ -24,4 +24,17 @@
     withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
         withSuccessHandler:(void (^)(NSData *))successHandler;
 
+- (void)postWithAuthorizationToPath:(NSString *)path
+                     withQueryItems:(NSArray<NSURLQueryItem *> *)queryItems
+                           withBody:(NSData *)body
+             withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+             withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+                 withSuccessHandler:(void (^)(NSData *))successHandler;
+
+- (void)postWithAuthorizationToPath:(NSString *)path
+                           withBody:(NSData *)body
+             withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+             withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+                 withSuccessHandler:(void (^)(NSData *))successHandler;
+
 @end
