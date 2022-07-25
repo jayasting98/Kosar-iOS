@@ -7,7 +7,11 @@
 
 #import "JTKSignUpController.h"
 
+#import "JTKContainerSchemeHelper.h"
+
 #import "Masonry.h"
+#import "MaterialButtons.h"
+#import "MaterialButtons+Theming.h"
 #import "MaterialTextControls+OutlinedTextFields.h"
 
 static CGFloat const kMargin = 16;
@@ -16,12 +20,14 @@ static CGFloat const kYGutter = 16;
 static NSString * const kEmailAddressTextFieldLabelText = @"Email Address";
 static NSString * const kUsernameTextFieldLabelText = @"Username";
 static NSString * const kPasswordTextFieldLabelText = @"Password";
+static NSString * const kSignUpButtonLabelText = @"Sign Up";
 
 @interface JTKSignUpController ()
 
 @property (nonatomic) MDCOutlinedTextField *emailAddressTextField;
 @property (nonatomic) MDCOutlinedTextField *usernameTextField;
 @property (nonatomic) MDCOutlinedTextField *passwordTextField;
+@property (nonatomic) MDCButton *signUpButton;
 
 @end
 
@@ -33,6 +39,7 @@ static NSString * const kPasswordTextFieldLabelText = @"Password";
     [self buildEmailAddressTextField];
     [self buildUsernameTextField];
     [self buildPasswordTextField];
+    [self buildSignUpButton];
 }
 
 
@@ -41,6 +48,7 @@ static NSString * const kPasswordTextFieldLabelText = @"Password";
     [self layoutEmailAddressTextField];
     [self layoutUsernameTextField];
     [self layoutPasswordTextField];
+    [self layoutSignUpButton];
 }
 
 
@@ -91,6 +99,23 @@ static NSString * const kPasswordTextFieldLabelText = @"Password";
     [self.passwordTextField mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.view).with.insets(margin);
         make.top.equalTo(self.usernameTextField.mas_bottom).with.offset(kYGutter);
+    }];
+}
+
+
+- (void)buildSignUpButton {
+    self.signUpButton = [[MDCButton alloc] init];
+    [self.view addSubview:self.signUpButton];
+    [self.signUpButton setTitle:kSignUpButtonLabelText forState:UIControlStateNormal];
+    [self.signUpButton applyContainedThemeWithScheme:[JTKContainerSchemeHelper getContainerScheme]];
+}
+
+
+- (void)layoutSignUpButton {
+    UIEdgeInsets margin = UIEdgeInsetsMake(0, 0, 0, kMargin);
+    [self.signUpButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view).with.insets(margin);
+        make.top.equalTo(self.passwordTextField.mas_bottom).with.offset(kYGutter);
     }];
 }
 
