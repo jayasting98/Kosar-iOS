@@ -57,6 +57,12 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
 }
 
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self resetTextFields];
+}
+
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self layoutEmailAddressTextField];
@@ -176,6 +182,13 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
             break;
     }
     return YES;
+}
+
+
+- (void)resetTextFields {
+    self.emailAddressTextField.text = @"";
+    self.usernameTextField.text = @"";
+    self.passwordTextField.text = @"";
 }
 
 
