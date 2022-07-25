@@ -29,6 +29,7 @@
 		2B447423284793A800DCC67D /* JTKContainerSchemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B447422284793A800DCC67D /* JTKContainerSchemeHelper.m */; };
 		2B447426284863C800DCC67D /* JTKPostSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B447425284863C800DCC67D /* JTKPostSectionController.m */; };
 		2B44742928486D0F00DCC67D /* JTKPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44742828486D0F00DCC67D /* JTKPostCell.m */; };
+		2B9F6F76288EA08800E7F6BC /* JTKSignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F75288EA08800E7F6BC /* JTKSignUpController.m */; };
 		2BBC10B2288C328000541A85 /* JTKAuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10B1288C328000541A85 /* JTKAuthService.m */; };
 		2BBC10B5288C437200541A85 /* JTKSignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10B4288C437200541A85 /* JTKSignInController.m */; };
 		2BBC10B8288C48F200541A85 /* JTKSignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10B7288C48F200541A85 /* JTKSignInViewModel.m */; };
@@ -101,6 +102,8 @@
 		2B447425284863C800DCC67D /* JTKPostSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKPostSectionController.m; sourceTree = "<group>"; };
 		2B44742728486C2100DCC67D /* JTKPostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKPostCell.h; sourceTree = "<group>"; };
 		2B44742828486D0F00DCC67D /* JTKPostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKPostCell.m; sourceTree = "<group>"; };
+		2B9F6F74288EA08800E7F6BC /* JTKSignUpController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSignUpController.h; sourceTree = "<group>"; };
+		2B9F6F75288EA08800E7F6BC /* JTKSignUpController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSignUpController.m; sourceTree = "<group>"; };
 		2BBC10B0288C328000541A85 /* JTKAuthService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKAuthService.h; sourceTree = "<group>"; };
 		2BBC10B1288C328000541A85 /* JTKAuthService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKAuthService.m; sourceTree = "<group>"; };
 		2BBC10B3288C437200541A85 /* JTKSignInController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSignInController.h; sourceTree = "<group>"; };
@@ -232,6 +235,8 @@
 				2BBC10C1288D209D00541A85 /* JTKUsernameCredentials.m */,
 				2BBC10C3288D24A900541A85 /* JTKSession.h */,
 				2BBC10C4288D24A900541A85 /* JTKSession.m */,
+				2B9F6F74288EA08800E7F6BC /* JTKSignUpController.h */,
+				2B9F6F75288EA08800E7F6BC /* JTKSignUpController.m */,
 			);
 			path = Kosar;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				2BE9EBF82881BFC600F03C7D /* JTKApiService.m in Sources */,
 				2B4473EE28471E5A00DCC67D /* ViewController.m in Sources */,
 				2B44741D2847200B00DCC67D /* JTKMainController.m in Sources */,
+				2B9F6F76288EA08800E7F6BC /* JTKSignUpController.m in Sources */,
 				2B447423284793A800DCC67D /* JTKContainerSchemeHelper.m in Sources */,
 				2BBC10B5288C437200541A85 /* JTKSignInController.m in Sources */,
 				2B4473E828471E5A00DCC67D /* AppDelegate.m in Sources */,
