@@ -55,6 +55,17 @@ static NSInteger const kEmulatorPort = 9099;
 }
 
 
+- (void)getBearerTokenWithHandler:(void (^)(NSString *))bearerTokenHandler {
+    FIRUser *user = [FIRAuth auth].currentUser;
+    [user getIDTokenForcingRefresh:YES completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+        if (error) {
+            return;
+        }
+        bearerTokenHandler(token);
+    }];
+}
+
+
 - (void)addAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer {
     [self.authenticationStateObservers addObject:observer];
 }
