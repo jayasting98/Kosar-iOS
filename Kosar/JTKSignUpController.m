@@ -15,11 +15,13 @@ static CGFloat const kYGutter = 16;
 
 static NSString * const kEmailAddressTextFieldLabelText = @"Email Address";
 static NSString * const kUsernameTextFieldLabelText = @"Username";
+static NSString * const kPasswordTextFieldLabelText = @"Password";
 
 @interface JTKSignUpController ()
 
 @property (nonatomic) MDCOutlinedTextField *emailAddressTextField;
 @property (nonatomic) MDCOutlinedTextField *usernameTextField;
+@property (nonatomic) MDCOutlinedTextField *passwordTextField;
 
 @end
 
@@ -30,6 +32,7 @@ static NSString * const kUsernameTextFieldLabelText = @"Username";
     self.view.backgroundColor = UIColor.whiteColor;
     [self buildEmailAddressTextField];
     [self buildUsernameTextField];
+    [self buildPasswordTextField];
 }
 
 
@@ -37,6 +40,7 @@ static NSString * const kUsernameTextFieldLabelText = @"Username";
     [super viewWillLayoutSubviews];
     [self layoutEmailAddressTextField];
     [self layoutUsernameTextField];
+    [self layoutPasswordTextField];
 }
 
 
@@ -68,6 +72,25 @@ static NSString * const kUsernameTextFieldLabelText = @"Username";
     [self.usernameTextField mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.view).with.insets(margin);
         make.bottom.equalTo(self.view.mas_centerY);
+    }];
+}
+
+
+- (void)buildPasswordTextField {
+    self.passwordTextField = [[MDCOutlinedTextField alloc] init];
+    [self.view addSubview:self.passwordTextField];
+    self.passwordTextField.label.text = kPasswordTextFieldLabelText;
+    self.passwordTextField.secureTextEntry = YES;
+    self.passwordTextField.delegate = self;
+    self.passwordTextField.tag = kPasswordTextFieldTag;
+}
+
+
+- (void)layoutPasswordTextField {
+    UIEdgeInsets margin = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
+    [self.passwordTextField mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(self.view).with.insets(margin);
+        make.top.equalTo(self.usernameTextField.mas_bottom).with.offset(kYGutter);
     }];
 }
 
