@@ -127,6 +127,7 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
     [self.view addSubview:self.signUpButton];
     [self.signUpButton setTitle:kSignUpButtonLabelText forState:UIControlStateNormal];
     [self.signUpButton applyContainedThemeWithScheme:[JTKContainerSchemeHelper getContainerScheme]];
+    [self.signUpButton addTarget:self.viewModel action:@selector(signUp) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
