@@ -9,4 +9,8 @@
 
 @interface JTKSignUpViewModel : NSObject
 
+@property (nonatomic) NSString *emailAddress;
+@property (nonatomic) NSString *username;
+@property (nonatomic) NSString *password;
+
 @end

@@ -8,6 +8,7 @@
 #import "JTKSignUpController.h"
 
 #import "JTKContainerSchemeHelper.h"
+#import "JTKSignUpViewModel.h"
 
 #import "Masonry.h"
 #import "MaterialButtons.h"
@@ -23,9 +24,15 @@ static NSString * const kPasswordTextFieldLabelText = @"Password";
 static NSString * const kSignUpButtonLabelText = @"Sign Up";
 static NSString * const kGoSignInButtonLabelText = @"I already have an account";
 
+static NSInteger const kEmailAddressTextFieldTag = 1;
+static NSInteger const kUsernameTextFieldTag = 2;
+static NSInteger const kPasswordTextFieldTag = 3;
+
 static CGFloat const kGoSignInButtonLabelFontSize = 12;
 
-@interface JTKSignUpController ()
+@interface JTKSignUpController () <UITextFieldDelegate>
+
+@property (nonatomic) JTKSignUpViewModel *viewModel;
 
 @property (nonatomic) MDCOutlinedTextField *emailAddressTextField;
 @property (nonatomic) MDCOutlinedTextField *usernameTextField;
@@ -39,6 +46,7 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.viewModel = [[JTKSignUpViewModel alloc] init];
     self.view.backgroundColor = UIColor.whiteColor;
     [self enableDismissingKeyboardWhenTappingElsewhere];
     [self buildEmailAddressTextField];
@@ -63,6 +71,8 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
     self.emailAddressTextField = [[MDCOutlinedTextField alloc] init];
     [self.view addSubview:self.emailAddressTextField];
     self.emailAddressTextField.label.text = kEmailAddressTextFieldLabelText;
+    self.emailAddressTextField.delegate = self;
+    self.emailAddressTextField.tag = kEmailAddressTextFieldTag;
 }
 
 
@@ -79,6 +89,8 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
     self.usernameTextField = [[MDCOutlinedTextField alloc] init];
     [self.view addSubview:self.usernameTextField];
     self.usernameTextField.label.text = kUsernameTextFieldLabelText;
+    self.usernameTextField.delegate = self;
+    self.usernameTextField.tag = kUsernameTextFieldTag;
 }
 
 
@@ -144,6 +156,25 @@ static CGFloat const kGoSignInButtonLabelFontSize = 12;
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.signUpButton.mas_bottom).with.offset(kYGutter);
     }];
+}
+
+
+- (BOOL)textField:(UITextField *)textField
+        shouldChangeCharactersInRange:(NSRange)range
+                    replacementString:(NSString *)string {
+    NSString *updatedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    switch (textField.tag) {
+        case kEmailAddressTextFieldTag:
+            self.viewModel.emailAddress = updatedString;
+            break;
+        case kUsernameTextFieldTag:
+            self.viewModel.username = updatedString;
+            break;
+        case kPasswordTextFieldTag:
+            self.viewModel.password = updatedString;
+            break;
+    }
+    return YES;
 }
 
 
