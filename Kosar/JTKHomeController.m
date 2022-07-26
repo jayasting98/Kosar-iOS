@@ -7,10 +7,15 @@
 
 #import "JTKHomeController.h"
 
+#import "JTKAuthService.h"
 #import "JTKPostSectionController.h"
 #import "JTKPostsViewModel.h"
 
 #import <IGListKit/IGListKit.h>
+
+static NSString * const kProfileIconImageName = @"person-person_symbol";
+
+static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 
 @interface JTKHomeController () <IGListAdapterDataSource>
 
@@ -35,12 +40,30 @@
     self.adapter = [[IGListAdapter alloc] initWithUpdater:updater viewController:self];
     self.adapter.collectionView = self.collectionView;
     self.adapter.dataSource = self;
+    [self buildProfileBarButton];
 }
 
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.collectionView.frame = self.view.bounds;
+}
+
+
+- (void)buildProfileBarButton {
+    UIImage *profileIcon = [UIImage imageNamed:kProfileIconImageName];
+    UIAction *signOutAction = [UIAction actionWithTitle:kSignOutProfileMenuElementTitle
+                                                  image:nil
+                                             identifier:nil
+                                                handler:^(__kindof UIAction * _Nonnull action) {
+        [[JTKAuthService sharedInstance] signOut];
+    }];
+    NSArray<UIMenuElement *> *profileMenuChildren = @[
+        signOutAction,
+    ];
+    UIMenu *profileMenu = [UIMenu menuWithChildren:profileMenuChildren];
+    UIBarButtonItem *profileBarButtonItem = [[UIBarButtonItem alloc] initWithImage:profileIcon menu:profileMenu];
+    self.navigationItem.leftBarButtonItem = profileBarButtonItem;
 }
 
 

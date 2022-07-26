@@ -6,12 +6,15 @@ target 'Kosar' do
   use_frameworks!
 
   # Pods for Kosar
+  pod 'FirebaseAuth'
   pod 'IGListKit', '~> 4.0.0'
   pod 'Masonry'
   pod 'MaterialComponents/BottomNavigation'
   pod 'MaterialComponents/BottomNavigation+Theming'
   pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/Buttons+Theming'
   pod 'MaterialComponents/TextControls+OutlinedTextAreas'
+  pod 'MaterialComponents/TextControls+OutlinedTextFields'
 
   target 'KosarTests' do
     inherit! :search_paths

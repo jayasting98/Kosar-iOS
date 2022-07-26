@@ -29,6 +29,20 @@
 		2B447423284793A800DCC67D /* JTKContainerSchemeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B447422284793A800DCC67D /* JTKContainerSchemeHelper.m */; };
 		2B447426284863C800DCC67D /* JTKPostSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B447425284863C800DCC67D /* JTKPostSectionController.m */; };
 		2B44742928486D0F00DCC67D /* JTKPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44742828486D0F00DCC67D /* JTKPostCell.m */; };
+		2B9F6F76288EA08800E7F6BC /* JTKSignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F75288EA08800E7F6BC /* JTKSignUpController.m */; };
+		2B9F6F79288EE05900E7F6BC /* JTKAuthenticationModalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F78288EE05900E7F6BC /* JTKAuthenticationModalController.m */; };
+		2B9F6F7C288EF58A00E7F6BC /* JTKUsersService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F7B288EF58A00E7F6BC /* JTKUsersService.m */; };
+		2B9F6F7F288EF6A200E7F6BC /* JTKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F7E288EF6A200E7F6BC /* JTKUser.m */; };
+		2B9F6F82288EFD7600E7F6BC /* JTKSignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9F6F81288EFD7600E7F6BC /* JTKSignUpViewModel.m */; };
+		2BBC10B2288C328000541A85 /* JTKAuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10B1288C328000541A85 /* JTKAuthService.m */; };
+		2BBC10B5288C437200541A85 /* JTKSignInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10B4288C437200541A85 /* JTKSignInController.m */; };
+		2BBC10B8288C48F200541A85 /* JTKSignInViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10B7288C48F200541A85 /* JTKSignInViewModel.m */; };
+		2BBC10BA288C518100541A85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC10B9288C518100541A85 /* GoogleService-Info.plist */; };
+		2BBC10BB288C518100541A85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC10B9288C518100541A85 /* GoogleService-Info.plist */; };
+		2BBC10BC288C518100541A85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC10B9288C518100541A85 /* GoogleService-Info.plist */; };
+		2BBC10BF288D1EFF00541A85 /* JTKSessionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10BE288D1EFF00541A85 /* JTKSessionsService.m */; };
+		2BBC10C2288D209D00541A85 /* JTKUsernameCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10C1288D209D00541A85 /* JTKUsernameCredentials.m */; };
+		2BBC10C5288D24A900541A85 /* JTKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10C4288D24A900541A85 /* JTKSession.m */; };
 		2BE9EBF82881BFC600F03C7D /* JTKApiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9EBF62881BFC600F03C7D /* JTKApiService.m */; };
 		2BE9EBFB2881C9FF00F03C7D /* JTKPostsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9EBF92881C9FF00F03C7D /* JTKPostsService.m */; };
 		616468926ECA3C422703DBCE /* Pods_KosarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64527FE02D2BA87EEE632233 /* Pods_KosarTests.framework */; };
@@ -92,6 +106,29 @@
 		2B447425284863C800DCC67D /* JTKPostSectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKPostSectionController.m; sourceTree = "<group>"; };
 		2B44742728486C2100DCC67D /* JTKPostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKPostCell.h; sourceTree = "<group>"; };
 		2B44742828486D0F00DCC67D /* JTKPostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKPostCell.m; sourceTree = "<group>"; };
+		2B9F6F74288EA08800E7F6BC /* JTKSignUpController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSignUpController.h; sourceTree = "<group>"; };
+		2B9F6F75288EA08800E7F6BC /* JTKSignUpController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSignUpController.m; sourceTree = "<group>"; };
+		2B9F6F77288EE05900E7F6BC /* JTKAuthenticationModalController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKAuthenticationModalController.h; sourceTree = "<group>"; };
+		2B9F6F78288EE05900E7F6BC /* JTKAuthenticationModalController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKAuthenticationModalController.m; sourceTree = "<group>"; };
+		2B9F6F7A288EF58A00E7F6BC /* JTKUsersService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKUsersService.h; sourceTree = "<group>"; };
+		2B9F6F7B288EF58A00E7F6BC /* JTKUsersService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKUsersService.m; sourceTree = "<group>"; };
+		2B9F6F7D288EF6A200E7F6BC /* JTKUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKUser.h; sourceTree = "<group>"; };
+		2B9F6F7E288EF6A200E7F6BC /* JTKUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKUser.m; sourceTree = "<group>"; };
+		2B9F6F80288EFD7600E7F6BC /* JTKSignUpViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSignUpViewModel.h; sourceTree = "<group>"; };
+		2B9F6F81288EFD7600E7F6BC /* JTKSignUpViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSignUpViewModel.m; sourceTree = "<group>"; };
+		2BBC10B0288C328000541A85 /* JTKAuthService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKAuthService.h; sourceTree = "<group>"; };
+		2BBC10B1288C328000541A85 /* JTKAuthService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKAuthService.m; sourceTree = "<group>"; };
+		2BBC10B3288C437200541A85 /* JTKSignInController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSignInController.h; sourceTree = "<group>"; };
+		2BBC10B4288C437200541A85 /* JTKSignInController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSignInController.m; sourceTree = "<group>"; };
+		2BBC10B6288C48F200541A85 /* JTKSignInViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSignInViewModel.h; sourceTree = "<group>"; };
+		2BBC10B7288C48F200541A85 /* JTKSignInViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSignInViewModel.m; sourceTree = "<group>"; };
+		2BBC10B9288C518100541A85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2BBC10BD288D1EFF00541A85 /* JTKSessionsService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSessionsService.h; sourceTree = "<group>"; };
+		2BBC10BE288D1EFF00541A85 /* JTKSessionsService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSessionsService.m; sourceTree = "<group>"; };
+		2BBC10C0288D209D00541A85 /* JTKUsernameCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKUsernameCredentials.h; sourceTree = "<group>"; };
+		2BBC10C1288D209D00541A85 /* JTKUsernameCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKUsernameCredentials.m; sourceTree = "<group>"; };
+		2BBC10C3288D24A900541A85 /* JTKSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSession.h; sourceTree = "<group>"; };
+		2BBC10C4288D24A900541A85 /* JTKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSession.m; sourceTree = "<group>"; };
 		2BE9EBF62881BFC600F03C7D /* JTKApiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTKApiService.m; sourceTree = "<group>"; };
 		2BE9EBF72881BFC600F03C7D /* JTKApiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTKApiService.h; sourceTree = "<group>"; };
 		2BE9EBF92881C9FF00F03C7D /* JTKPostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTKPostsService.m; sourceTree = "<group>"; };
@@ -160,6 +197,7 @@
 		2B4473E528471E5A00DCC67D /* Kosar */ = {
 			isa = PBXGroup;
 			children = (
+				2BBC10B9288C518100541A85 /* GoogleService-Info.plist */,
 				2B4473E628471E5A00DCC67D /* AppDelegate.h */,
 				2B4473E728471E5A00DCC67D /* AppDelegate.m */,
 				2B4473E928471E5A00DCC67D /* SceneDelegate.h */,
@@ -197,6 +235,28 @@
 				2BE9EBF62881BFC600F03C7D /* JTKApiService.m */,
 				2BE9EBFA2881C9FF00F03C7D /* JTKPostsService.h */,
 				2BE9EBF92881C9FF00F03C7D /* JTKPostsService.m */,
+				2BBC10B0288C328000541A85 /* JTKAuthService.h */,
+				2BBC10B1288C328000541A85 /* JTKAuthService.m */,
+				2BBC10B3288C437200541A85 /* JTKSignInController.h */,
+				2BBC10B4288C437200541A85 /* JTKSignInController.m */,
+				2BBC10B6288C48F200541A85 /* JTKSignInViewModel.h */,
+				2BBC10B7288C48F200541A85 /* JTKSignInViewModel.m */,
+				2BBC10BD288D1EFF00541A85 /* JTKSessionsService.h */,
+				2BBC10BE288D1EFF00541A85 /* JTKSessionsService.m */,
+				2BBC10C0288D209D00541A85 /* JTKUsernameCredentials.h */,
+				2BBC10C1288D209D00541A85 /* JTKUsernameCredentials.m */,
+				2BBC10C3288D24A900541A85 /* JTKSession.h */,
+				2BBC10C4288D24A900541A85 /* JTKSession.m */,
+				2B9F6F74288EA08800E7F6BC /* JTKSignUpController.h */,
+				2B9F6F75288EA08800E7F6BC /* JTKSignUpController.m */,
+				2B9F6F77288EE05900E7F6BC /* JTKAuthenticationModalController.h */,
+				2B9F6F78288EE05900E7F6BC /* JTKAuthenticationModalController.m */,
+				2B9F6F7A288EF58A00E7F6BC /* JTKUsersService.h */,
+				2B9F6F7B288EF58A00E7F6BC /* JTKUsersService.m */,
+				2B9F6F7D288EF6A200E7F6BC /* JTKUser.h */,
+				2B9F6F7E288EF6A200E7F6BC /* JTKUser.m */,
+				2B9F6F80288EFD7600E7F6BC /* JTKSignUpViewModel.h */,
+				2B9F6F81288EFD7600E7F6BC /* JTKSignUpViewModel.m */,
 			);
 			path = Kosar;
 			sourceTree = "<group>";
@@ -350,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4473F628471E5C00DCC67D /* LaunchScreen.storyboard in Resources */,
+				2BBC10BA288C518100541A85 /* GoogleService-Info.plist in Resources */,
 				2B4473F328471E5C00DCC67D /* Assets.xcassets in Resources */,
 				2B4473F128471E5A00DCC67D /* Main.storyboard in Resources */,
 			);
@@ -359,6 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BBC10BB288C518100541A85 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BBC10BC288C518100541A85 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,19 +545,30 @@
 				2BE9EBF82881BFC600F03C7D /* JTKApiService.m in Sources */,
 				2B4473EE28471E5A00DCC67D /* ViewController.m in Sources */,
 				2B44741D2847200B00DCC67D /* JTKMainController.m in Sources */,
+				2B9F6F76288EA08800E7F6BC /* JTKSignUpController.m in Sources */,
+				2B9F6F7C288EF58A00E7F6BC /* JTKUsersService.m in Sources */,
 				2B447423284793A800DCC67D /* JTKContainerSchemeHelper.m in Sources */,
+				2BBC10B5288C437200541A85 /* JTKSignInController.m in Sources */,
 				2B4473E828471E5A00DCC67D /* AppDelegate.m in Sources */,
 				2B17A7CA2853300F00B73DF7 /* JTKPostViewModel.m in Sources */,
 				2B4473F928471E5C00DCC67D /* main.m in Sources */,
+				2BBC10B8288C48F200541A85 /* JTKSignInViewModel.m in Sources */,
 				2B447426284863C800DCC67D /* JTKPostSectionController.m in Sources */,
+				2BBC10C5288D24A900541A85 /* JTKSession.m in Sources */,
 				2B17A7C428532CC800B73DF7 /* JTKPostsViewModel.m in Sources */,
+				2BBC10B2288C328000541A85 /* JTKAuthService.m in Sources */,
 				2BE9EBFB2881C9FF00F03C7D /* JTKPostsService.m in Sources */,
 				2B4474202847412900DCC67D /* JTKHomeController.m in Sources */,
+				2B9F6F79288EE05900E7F6BC /* JTKAuthenticationModalController.m in Sources */,
 				2B17A7CD2859640800B73DF7 /* JTKCreatePostEditorController.m in Sources */,
 				2B17A7C728532DC000B73DF7 /* JTKPost.m in Sources */,
+				2B9F6F7F288EF6A200E7F6BC /* JTKUser.m in Sources */,
+				2BBC10C2288D209D00541A85 /* JTKUsernameCredentials.m in Sources */,
 				2B17A7D3285ADFDD00B73DF7 /* JTKCreatePostEditorViewModel.m in Sources */,
 				2B17A7D028597B4900B73DF7 /* JTKCreatePostModalController.m in Sources */,
 				2B4473EB28471E5A00DCC67D /* SceneDelegate.m in Sources */,
+				2BBC10BF288D1EFF00541A85 /* JTKSessionsService.m in Sources */,
+				2B9F6F82288EFD7600E7F6BC /* JTKSignUpViewModel.m in Sources */,
 				2B44742928486D0F00DCC67D /* JTKPostCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

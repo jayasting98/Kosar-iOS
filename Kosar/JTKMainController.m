@@ -7,6 +7,8 @@
 
 #import "JTKMainController.h"
 
+#import "JTKAuthService.h"
+#import "JTKAuthenticationModalController.h"
 #import "JTKContainerSchemeHelper.h"
 #import "JTKCreatePostModalController.h"
 #import "JTKHomeController.h"
@@ -68,7 +70,52 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 
 @end
 
+
+@interface JTKAuthenticationModalHandler : NSObject <JTKAuthenticationStateObserver>
+
+@property (nonatomic, weak) UIViewController *presentingViewController;
+
+@property (nonatomic) JTKAuthenticationModalController *authenticationModalController;
+
+@end
+
+@implementation JTKAuthenticationModalHandler
+
+- (instancetype)initWithPresentingViewController:(UIViewController *)presentingViewController {
+    self = [super init];
+    if (self) {
+        _presentingViewController = presentingViewController;
+        _authenticationModalController = [[JTKAuthenticationModalController alloc] init];
+        _authenticationModalController.modalPresentationStyle = UIModalPresentationFullScreen;
+    }
+    return self;
+}
+
+
+- (void)present {
+    if ([self.authenticationModalController isBeingPresented]) {
+        return;
+    }
+    [self.presentingViewController presentViewController:self.authenticationModalController animated:YES completion:nil];
+}
+
+
+- (void)reactToSignIn {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)reactToSignOut {
+    [self present];
+}
+
+
+@end
+
+
 @interface JTKMainController ()
+
+@property (nonatomic) JTKAuthenticationModalHandler *authenticationModalHandler;
 
 @property (nonatomic) MDCBottomNavigationBar *bottomNavigationBar;
 @property (nonatomic) MDCFloatingButton *floatingActionButton;
@@ -80,6 +127,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.authenticationModalHandler = [[JTKAuthenticationModalHandler alloc] initWithPresentingViewController:self];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self buildBottomNavigationBar];
     self.viewControllers = @[
@@ -164,6 +212,21 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self adjustAdditionalSafeAreaInsetsDueToBottomNavigationBar];
+    [self enableReactingToSignIn];
+    [self presentAuthenticationModalIfNecessary];
+}
+
+
+- (void)enableReactingToSignIn {
+    [[JTKAuthService sharedInstance] addAuthenticationStateObserver:self.authenticationModalHandler];
+}
+
+
+- (void)presentAuthenticationModalIfNecessary {
+    if ([[JTKAuthService sharedInstance] isSignedIn]) {
+        return;
+    }
+    [self.authenticationModalHandler present];
 }
 
 

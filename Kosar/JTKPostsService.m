@@ -59,11 +59,11 @@ static NSString * const kPostMessagePostDataKey = @"message";
         successHandler(createdPost);
     };
     NSString *completePath = [self createCompletePathWithRelativePath:kCreatePostRelativePath];
-    [[JTKApiService sharedInstance] postToPath:completePath
-                                      withBody:postData
-                        withClientErrorHandler:clientErrorHandler
-                        withServerErrorHandler:serverErrorHandler
-                            withSuccessHandler:successDataHandler];
+    [[JTKApiService sharedInstance] postWithAuthorizationToPath:completePath
+                                                       withBody:postData
+                                         withClientErrorHandler:clientErrorHandler
+                                         withServerErrorHandler:serverErrorHandler
+                                             withSuccessHandler:successDataHandler];
 }
 
 
