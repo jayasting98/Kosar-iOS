@@ -24,7 +24,6 @@ CGFloat const kFloatingActionButtonMarginBottom = 16;
 CGFloat const kFloatingActionButtonMarginRight = 16;
 CGSize const kFloatingActionButtonSize = {56, 56};
 
-
 @interface JTKCreatePostModalHandler : NSObject <JTKCreatePostModalDelegate>
 
 @property (nonatomic) UIViewController *presentingViewController;
@@ -32,7 +31,6 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 @property (nonatomic) JTKCreatePostModalController *createPostModalController;
 
 @end
-
 
 @implementation JTKCreatePostModalHandler
 
@@ -47,29 +45,23 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     return self;
 }
 
-
 - (void)present {
     [self.presentingViewController presentViewController:self.createPostModalController animated:YES completion:nil];
 }
-
 
 - (void)reactToCloseButtonTap {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 - (void)reactToCreateButtonTapWithInvalidPost {
     NSLog(@"Reacting to invalid post.");
 }
-
 
 - (void)reactToCreateButtonTapWithValidPost {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 @end
-
 
 @interface JTKAuthenticationModalHandler : NSObject <JTKAuthenticationStateObserver>
 
@@ -91,7 +83,6 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     return self;
 }
 
-
 - (void)present {
     if ([self.authenticationModalController isBeingPresented]) {
         return;
@@ -99,19 +90,15 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     [self.presentingViewController presentViewController:self.authenticationModalController animated:YES completion:nil];
 }
 
-
 - (void)reactToSignIn {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 - (void)reactToSignOut {
     [self present];
 }
 
-
 @end
-
 
 @interface JTKMainController ()
 
@@ -138,7 +125,6 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     [self buildFloatingActionButton];
 }
 
-
 - (void)buildBottomNavigationBar {
     self.bottomNavigationBar = [[MDCBottomNavigationBar alloc] init];
     [self.view addSubview:self.bottomNavigationBar];
@@ -158,7 +144,6 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     self.bottomNavigationBar.delegate = self;
 }
 
-
 - (void)layoutBottomNavigationBar {
     CGSize size = [self.bottomNavigationBar sizeThatFits:self.view.bounds.size];
     CGRect bottomNavigationBarFrame = CGRectMake(
@@ -172,7 +157,6 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     self.bottomNavigationBar.frame = bottomNavigationBarFrame;
 }
 
-
 - (void)buildFloatingActionButton {
     self.floatingActionButton = [MDCFloatingButton floatingButtonWithShape:MDCFloatingButtonShapeDefault];
     [self.view addSubview:self.floatingActionButton];
@@ -182,7 +166,6 @@ CGSize const kFloatingActionButtonSize = {56, 56};
                                   action:@selector(presentCreatePostModal)
                         forControlEvents:UIControlEventTouchUpInside];
 }
-
 
 - (void)layoutFloatingActionButton {
     UIEdgeInsets margin = self.view.safeAreaInsets;
@@ -194,20 +177,17 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     }];
 }
 
-
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self layoutBottomNavigationBar];
     [self layoutFloatingActionButton];
 }
 
-
 - (void)adjustAdditionalSafeAreaInsetsDueToBottomNavigationBar {
     UIEdgeInsets newSafeArea = self.additionalSafeAreaInsets;
     newSafeArea.bottom += self.bottomNavigationBar.frame.size.height - self.tabBar.frame.size.height;
     self.selectedViewController.additionalSafeAreaInsets = newSafeArea;
 }
-
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -216,11 +196,9 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     [self presentAuthenticationModalIfNecessary];
 }
 
-
 - (void)enableReactingToSignIn {
     [[JTKAuthService sharedInstance] addAuthenticationStateObserver:self.authenticationModalHandler];
 }
-
 
 - (void)presentAuthenticationModalIfNecessary {
     if ([[JTKAuthService sharedInstance] isSignedIn]) {
@@ -229,7 +207,6 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     [self.authenticationModalHandler present];
 }
 
-
 - (UINavigationController *)createTabWithViewController:(UIViewController *)viewController {
     UINavigationController *tabViewController = [
         [UINavigationController alloc] initWithRootViewController:viewController
@@ -237,16 +214,13 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     return tabViewController;
 }
 
-
 - (void)bottomNavigationBar:(MDCBottomNavigationBar *)bottomNavigationBar didSelectItem:(UITabBarItem *)item {
     self.selectedIndex = item.tag;
 }
-
 
 - (void)presentCreatePostModal {
     JTKCreatePostModalHandler *modalHandler = [[JTKCreatePostModalHandler alloc] initWithPresentingViewController:self];
     [modalHandler present];
 }
-
 
 @end

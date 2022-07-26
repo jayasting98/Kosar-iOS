@@ -38,13 +38,11 @@ static NSString * const kDateTimeCreatedCreateUserResponseKey = @"dateTimeCreate
     return sharedInstance;
 }
 
-
 - (NSString *)createCompletePathWithRelativePath:(NSString *)relativePath {
     NSMutableString *completePath = [NSMutableString stringWithString:kBaseUsersPath];
     [completePath appendString:relativePath];
     return completePath;
 }
-
 
 - (void)createUser:(JTKUser *)user
         withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
@@ -58,7 +56,7 @@ static NSString * const kDateTimeCreatedCreateUserResponseKey = @"dateTimeCreate
     NSData *createUserRequestData = [NSJSONSerialization dataWithJSONObject:createUserRequestDictionary
                                                                     options:0
                                                                       error:nil];
-    void (^successDataHandler)(NSData *) = ^(NSData *data){
+    void (^successDataHandler)(NSData *) = ^(NSData *data) {
         if (!successHandler) {
             return;
         }
@@ -77,6 +75,5 @@ static NSString * const kDateTimeCreatedCreateUserResponseKey = @"dateTimeCreate
                         withServerErrorHandler:serverErrorHandler
                             withSuccessHandler:successDataHandler];
 }
-
 
 @end

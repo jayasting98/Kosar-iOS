@@ -17,7 +17,6 @@
 
 @implementation JTKPostViewModel
 
-
 - (instancetype)initWithPost:(JTKPost *)post {
     if (self = [super init]) {
         self.post = post;
@@ -26,21 +25,17 @@
     return self;
 }
 
-
 - (nonnull id<NSObject>)diffIdentifier {
     return self.post.postId;
 }
-
 
 - (BOOL)isEqualToDiffableObject:(nullable id<IGListDiffable>)object {
     return [self isEqual:object];
 }
 
-
 - (NSUInteger)hash {
     return [self.post.postId hash];
 }
-
 
 - (BOOL)isEqual:(id)object {
     if (self == object) {
@@ -52,6 +47,5 @@
     JTKPostViewModel *other = object;
     return [self.post.postId isEqual:other.post.postId];
 }
-
 
 @end

@@ -31,7 +31,6 @@ static NSInteger const kEmulatorPort = 9099;
     return sharedInstance;
 }
 
-
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -54,7 +53,6 @@ static NSInteger const kEmulatorPort = 9099;
     return self;
 }
 
-
 - (void)getBearerTokenWithHandler:(void (^)(NSString *))bearerTokenHandler {
     FIRUser *user = [FIRAuth auth].currentUser;
     [user getIDTokenForcingRefresh:YES completion:^(NSString * _Nullable token, NSError * _Nullable error) {
@@ -65,30 +63,24 @@ static NSInteger const kEmulatorPort = 9099;
     }];
 }
 
-
 - (void)addAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer {
     [self.authenticationStateObservers addObject:observer];
 }
-
 
 - (void)removeAuthenticationStateObserver:(id<JTKAuthenticationStateObserver>)observer {
     [self.authenticationStateObservers removeObject:observer];
 }
 
-
 - (void)signInUsingAuthenticationToken:(NSString *)authenticationToken {
     [[FIRAuth auth] signInWithCustomToken:authenticationToken completion:nil];
 }
-
 
 - (void)signOut {
     [[FIRAuth auth] signOut:nil];
 }
 
-
 - (BOOL)isSignedIn {
     return [FIRAuth auth].currentUser != nil;
 }
-
 
 @end

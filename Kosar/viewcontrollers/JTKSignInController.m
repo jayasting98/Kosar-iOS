@@ -52,12 +52,10 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
     [self buildGoSignUpButton];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self resetTextFields];
 }
-
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -67,7 +65,6 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
     [self layoutGoSignUpButton];
 }
 
-
 - (void)buildUsernameTextField {
     self.usernameTextField = [[MDCOutlinedTextField alloc] init];
     [self.view addSubview:self.usernameTextField];
@@ -76,7 +73,6 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
     self.usernameTextField.tag = kUsernameTextFieldTag;
 }
 
-
 - (void)layoutUsernameTextField {
     UIEdgeInsets margin = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
     [self.usernameTextField mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -84,7 +80,6 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
         make.bottom.equalTo(self.view.mas_centerY);
     }];
 }
-
 
 - (void)buildPasswordTextField {
     self.passwordTextField = [[MDCOutlinedTextField alloc] init];
@@ -95,7 +90,6 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
     self.passwordTextField.tag = kPasswordTextFieldTag;
 }
 
-
 - (void)layoutPasswordTextField {
     UIEdgeInsets margin = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
     [self.passwordTextField mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -103,7 +97,6 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
         make.top.equalTo(self.usernameTextField.mas_bottom).with.offset(kYGutter);
     }];
 }
-
 
 - (void)buildSignInButton {
     self.signInButton = [[MDCButton alloc] init];
@@ -113,7 +106,6 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
     [self.signInButton addTarget:self.viewModel action:@selector(signIn) forControlEvents:UIControlEventTouchUpInside];
 }
 
-
 - (void)layoutSignInButton {
     UIEdgeInsets margin = UIEdgeInsetsMake(0, 0, 0, kMargin);
     [self.signInButton mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -121,7 +113,6 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
         make.top.equalTo(self.passwordTextField.mas_bottom).with.offset(kYGutter);
     }];
 }
-
 
 - (void)buildGoSignUpButton {
     self.goSignUpButton = [[UIButton alloc] init];
@@ -134,14 +125,12 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
                   forControlEvents:UIControlEventTouchUpInside];
 }
 
-
 - (void)layoutGoSignUpButton {
     [self.goSignUpButton mas_updateConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.signInButton.mas_bottom).with.offset(kYGutter);
     }];
 }
-
 
 - (BOOL)textField:(UITextField *)textField
         shouldChangeCharactersInRange:(NSRange)range
@@ -158,12 +147,10 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
     return YES;
 }
 
-
 - (void)resetTextFields {
     self.usernameTextField.text = @"";
     self.passwordTextField.text = @"";
 }
-
 
 - (void)enableDismissingKeyboardWhenTappingElsewhere {
     UITapGestureRecognizer *tapGestureRecognizer =
@@ -173,10 +160,8 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
     [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
-
 - (void)stopEditingWhenTappingElsewhere:(UITapGestureRecognizer *)sender {
     [self.view endEditing:YES];
 }
-
 
 @end

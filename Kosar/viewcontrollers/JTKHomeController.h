@@ -9,5 +9,4 @@
 
 @interface JTKHomeController : UIViewController
 
-
 @end

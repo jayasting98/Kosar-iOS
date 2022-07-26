@@ -19,5 +19,4 @@ MDCContainerScheme *containerScheme;
     return containerScheme;
 }
 
-
 @end

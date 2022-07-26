@@ -38,7 +38,6 @@ NSString * const kCreateBarButtonTitle = @"Create";
     [self pushViewController:self.createPostEditorController animated:nil];
 }
 
-
 - (void)executeForCreateButtonTap {
     if ([self.createPostEditorController hasValidPost]) {
         [self.createPostEditorController createPost];
@@ -47,6 +46,5 @@ NSString * const kCreateBarButtonTitle = @"Create";
         [self.modalDelegate reactToCreateButtonTapWithInvalidPost];
     }
 }
-
 
 @end

@@ -14,7 +14,6 @@ static NSString * const kServerUrlBuildSettingKey = @"SERVER_URL";
 static NSString * const kHttpPostMethod = @"POST";
 
 static NSString * const kContentTypeHeader = @"Content-Type";
-
 static NSString * const kJsonContentType = @"application/json";
 
 static NSString * const kAuthorizationHeaderField = @"Authorization";
@@ -37,11 +36,10 @@ static NSString * const kBearerAuthorizationHeaderValueTemplate = @"Bearer %@";
     return sharedInstance;
 }
 
-
 - (void)sendRequest:(NSURLRequest *)request
-    withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
-    withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
-        withSuccessHandler:(void (^)(NSData *))successHandler {
+        withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+        withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+            withSuccessHandler:(void (^)(NSData *))successHandler {
     NSURLSession *session = [NSURLSession sharedSession];
     void (^completionHandler)(NSData *, NSURLResponse *, NSError *);
     completionHandler = ^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -67,7 +65,6 @@ static NSString * const kBearerAuthorizationHeaderValueTemplate = @"Bearer %@";
     [dataTask resume];
 }
 
-
 - (void)postToPath:(NSString *)path
                 withQueryItems:(NSArray<NSURLQueryItem *> *)queryItems
                       withBody:(NSData *)body
@@ -89,7 +86,6 @@ static NSString * const kBearerAuthorizationHeaderValueTemplate = @"Bearer %@";
             withSuccessHandler:successHandler];
 }
 
-
 - (void)postToPath:(NSString *)path
                       withBody:(NSData *)body
         withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
@@ -103,7 +99,6 @@ static NSString * const kBearerAuthorizationHeaderValueTemplate = @"Bearer %@";
         withServerErrorHandler:serverErrorHandler
             withSuccessHandler:successHandler];
 }
-
 
 - (void)postWithAuthorizationToPath:(NSString *)path
                      withQueryItems:(NSArray<NSURLQueryItem *> *)queryItems
@@ -132,7 +127,6 @@ static NSString * const kBearerAuthorizationHeaderValueTemplate = @"Bearer %@";
     [[JTKAuthService sharedInstance] getBearerTokenWithHandler:bearerTokenHandler];
 }
 
-
 - (void)postWithAuthorizationToPath:(NSString *)path
                            withBody:(NSData *)body
              withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
@@ -147,10 +141,8 @@ static NSString * const kBearerAuthorizationHeaderValueTemplate = @"Bearer %@";
                    withSuccessHandler:successHandler];
 }
 
-
 - (NSString *)baseUrlString {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:kServerUrlBuildSettingKey];
 }
-
 
 @end

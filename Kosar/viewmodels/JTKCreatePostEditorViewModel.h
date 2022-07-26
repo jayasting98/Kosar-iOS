@@ -12,7 +12,6 @@
 @property (nonatomic) NSString *text;
 
 - (BOOL)hasValidPost;
-
 - (void)createPost;
 
 @end

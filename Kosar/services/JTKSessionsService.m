@@ -38,13 +38,11 @@ static NSString * const kAuthenticationTokenSessionKey = @"authenticationToken";
     return sharedInstance;
 }
 
-
 - (NSString *)createCompletePathWithRelativePath:(NSString *)relativePath {
     NSMutableString *completePath = [NSMutableString stringWithString:kBaseSessionsPath];
     [completePath appendString:relativePath];
     return completePath;
 }
-
 
 - (void)createSessionUsingUsernameCredentials:(JTKUsernameCredentials *)usernameCredentials
                        withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
@@ -57,7 +55,7 @@ static NSString * const kAuthenticationTokenSessionKey = @"authenticationToken";
     NSData *usernameCredentialsData = [NSJSONSerialization dataWithJSONObject:usernameCredentialsDataDictionary
                                                                       options:0
                                                                         error:nil];
-    void (^successDataHandler)(NSData *) = ^(NSData *data){
+    void (^successDataHandler)(NSData *) = ^(NSData *data) {
         if (!successHandler) {
             return;
         }

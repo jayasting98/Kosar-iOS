@@ -24,11 +24,9 @@
     return self;
 }
 
-
 - (BOOL)hasValidPost {
     return YES;
 }
-
 
 - (void)createPost {
     JTKPost *post = [[JTKPost alloc] init];
@@ -38,6 +36,5 @@
                           withServerErrorHandler:nil
                               withSuccessHandler:nil];
 }
-
 
 @end

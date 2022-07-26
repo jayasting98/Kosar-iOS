@@ -28,33 +28,27 @@
     [self switchToSignInController];
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     [self switchToSignInController];
 }
 
-
 - (void)reactToGoSignInButtonTap {
     [self switchToSignInController];
 }
 
-
 - (void)reactToGoSignUpButtonTap {
     [self switchToSignUpController];
 }
-
 
 - (void)switchToSignInController {
     NSArray<UIViewController *> *viewControllers = @[self.signInController];
     [self setViewControllers:viewControllers animated:YES];
 }
 
-
 - (void)switchToSignUpController {
     NSArray<UIViewController *> *viewControllers = @[self.signUpController];
     [self setViewControllers:viewControllers animated:YES];
 }
-
 
 @end

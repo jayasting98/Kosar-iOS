@@ -32,23 +32,21 @@ static NSString * const kPostMessagePostDataKey = @"message";
     return sharedInstance;
 }
 
-
 - (NSString *)createCompletePathWithRelativePath:(NSString *)relativePath {
     NSMutableString *completePath = [NSMutableString stringWithString:kBasePostsPath];
     [completePath appendString:relativePath];
     return completePath;
 }
 
-
 - (void)createPost:(JTKPost *)post
-    withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
-    withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
-        withSuccessHandler:(void (^)(JTKPost *))successHandler {
+        withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+        withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+            withSuccessHandler:(void (^)(JTKPost *))successHandler {
     NSDictionary *postDataDictionary = @{
         kPostMessagePostDataKey: post.text,
     };
     NSData *postData = [NSJSONSerialization dataWithJSONObject:postDataDictionary options:0 error:nil];
-    void (^successDataHandler)(NSData *) = ^(NSData *data){
+    void (^successDataHandler)(NSData *) = ^(NSData *data) {
         if (!successHandler) {
             return;
         }
@@ -65,6 +63,5 @@ static NSString * const kPostMessagePostDataKey = @"message";
                                          withServerErrorHandler:serverErrorHandler
                                              withSuccessHandler:successDataHandler];
 }
-
 
 @end

@@ -25,7 +25,6 @@
     return self;
 }
 
-
 - (NSArray<JTKPostViewModel *> *)posts {
     NSMutableArray<JTKPostViewModel *> *posts = [[NSMutableArray alloc] init];
     for (JTKPost *post in self.postModels) {
@@ -34,7 +33,6 @@
     }
     return posts;
 }
-
 
 + (NSArray<JTKPost *> *)createPlaceholderPosts {
     NSMutableArray<JTKPost *> *list = [[NSMutableArray alloc] init];
@@ -47,6 +45,5 @@
     }
     return list;
 }
-
 
 @end

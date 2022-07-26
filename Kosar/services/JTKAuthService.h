@@ -10,7 +10,6 @@
 @protocol JTKAuthenticationStateObserver <NSObject>
 
 - (void)reactToSignIn;
-
 - (void)reactToSignOut;
 
 @end

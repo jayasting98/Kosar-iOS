@@ -10,7 +10,6 @@
 @interface JTKCreatePostEditorController : UIViewController
 
 - (BOOL)hasValidPost;
-
 - (void)createPost;
 
 @end

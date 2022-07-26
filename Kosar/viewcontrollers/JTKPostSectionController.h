@@ -9,5 +9,4 @@
 
 @interface JTKPostSectionController : IGListSectionController
 
-
 @end

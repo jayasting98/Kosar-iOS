@@ -11,5 +11,4 @@
 
 @property (nonatomic, copy) NSString *text;
 
-
 @end

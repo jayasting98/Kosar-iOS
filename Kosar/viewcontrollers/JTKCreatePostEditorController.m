@@ -36,22 +36,18 @@ CGFloat const kMargin = 16;
     [self enableDismissingKeyboardWhenTappingElsewhere];
 }
 
-
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self layoutPostTextField];
 }
 
-
 - (BOOL)hasValidPost {
     return [self.viewModel hasValidPost];
 }
 
-
 - (void)createPost {
     [self.viewModel createPost];
 }
-
 
 - (void)buildPostTextField {
     self.postTextField = [[MDCOutlinedTextArea alloc] init];
@@ -62,7 +58,6 @@ CGFloat const kMargin = 16;
     self.postTextField.placeholder = kPostTextFieldPlaceholderText;
     self.postTextField.textView.delegate = self;
 }
-
 
 - (void)layoutPostTextField {
     UIEdgeInsets margin = self.view.safeAreaInsets;
@@ -76,7 +71,6 @@ CGFloat const kMargin = 16;
     self.postTextField.preferredContainerHeight = self.view.bounds.size.height - margin.top - margin.bottom;
 }
 
-
 - (BOOL)textView:(UITextView *)textView
         shouldChangeTextInRange:(NSRange)range
                 replacementText:(NSString *)string {
@@ -85,18 +79,15 @@ CGFloat const kMargin = 16;
     return YES;
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self addObserversForResizingViewForKeyboard];
 }
 
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self removeObserversForResizingViewForKeyboard];
 }
-
 
 - (void)addObserversForResizingViewForKeyboard {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -109,12 +100,10 @@ CGFloat const kMargin = 16;
                                                object:nil];
 }
 
-
 - (void)removeObserversForResizingViewForKeyboard {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
-
 
 - (void)keyboardDidShowWithNotification:(NSNotification *)notification {
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
@@ -123,7 +112,6 @@ CGFloat const kMargin = 16;
     self.additionalSafeAreaInsets = newAdditionalSafeArea;
 }
 
-
 - (void)keyboardDidHideWithNotification:(NSNotification *)notification {
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     UIEdgeInsets newAdditionalSafeArea = self.additionalSafeAreaInsets;
@@ -131,20 +119,16 @@ CGFloat const kMargin = 16;
     self.additionalSafeAreaInsets = newAdditionalSafeArea;
 }
 
-
 - (void)enableDismissingKeyboardWhenTappingElsewhere {
     UITapGestureRecognizer *tapGestureRecognizer =
             [[UITapGestureRecognizer alloc] initWithTarget:self
                                                     action:@selector(stopEditingWhenTappingElsewhere:)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tapGestureRecognizer];
-
 }
-
 
 - (void)stopEditingWhenTappingElsewhere:(UITapGestureRecognizer *)sender {
     [self.view endEditing:YES];
 }
-
 
 @end

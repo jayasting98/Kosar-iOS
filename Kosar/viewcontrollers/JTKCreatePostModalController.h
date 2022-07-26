@@ -10,9 +10,7 @@
 @protocol JTKCreatePostModalDelegate <NSObject>
 
 - (void)reactToCloseButtonTap;
-
 - (void)reactToCreateButtonTapWithInvalidPost;
-
 - (void)reactToCreateButtonTapWithValidPost;
 
 @end

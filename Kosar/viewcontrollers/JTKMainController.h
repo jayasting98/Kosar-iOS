@@ -11,5 +11,4 @@
 
 @interface JTKMainController : UITabBarController <MDCBottomNavigationBarDelegate>
 
-
 @end

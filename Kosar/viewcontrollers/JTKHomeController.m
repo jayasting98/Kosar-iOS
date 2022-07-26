@@ -43,12 +43,10 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
     [self buildProfileBarButton];
 }
 
-
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.collectionView.frame = self.view.bounds;
 }
-
 
 - (void)buildProfileBarButton {
     UIImage *profileIcon = [UIImage imageNamed:kProfileIconImageName];
@@ -66,20 +64,16 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
     self.navigationItem.leftBarButtonItem = profileBarButtonItem;
 }
 
-
 - (NSArray<id<IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter {
     return self.postsViewModel.posts;
 }
-
 
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id)object {
     return [[JTKPostSectionController alloc] init];
 }
 
-
 - (UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter {
     return nil;
 }
-
 
 @end
