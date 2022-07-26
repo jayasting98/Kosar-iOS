@@ -7,6 +7,10 @@
 
 #import "JTKContainerSchemeHelper.h"
 
+@interface JTKContainerSchemeHelper ()
+
+@end
+
 @implementation JTKContainerSchemeHelper
 
 + (MDCContainerScheme *)getContainerScheme {
