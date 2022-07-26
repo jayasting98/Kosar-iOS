@@ -9,14 +9,14 @@
 
 @implementation JTKContainerSchemeHelper
 
-MDCContainerScheme *containerScheme;
-
 + (MDCContainerScheme *)getContainerScheme {
-    if (!containerScheme) {
-        containerScheme = [[MDCContainerScheme alloc] init];
-        containerScheme.colorScheme.primaryColor = UIColor.blueColor;
-    }
-    return containerScheme;
+    static dispatch_once_t pred;
+    static MDCContainerScheme *sharedInstance = nil;
+    dispatch_once(&pred, ^{
+        sharedInstance = [[MDCContainerScheme alloc] init];
+        sharedInstance.colorScheme.primaryColor = UIColor.blueColor;
+    });
+    return sharedInstance;
 }
 
 @end
