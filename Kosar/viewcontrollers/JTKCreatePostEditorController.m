@@ -8,6 +8,7 @@
 #import "JTKCreatePostEditorController.h"
 
 #import "JTKCreatePostEditorViewModel.h"
+#import "JTKViewUtil.h"
 
 #import "Masonry.h"
 #import "MaterialTextControls+OutlinedTextAreas.h"
@@ -33,7 +34,7 @@ CGFloat const kMargin = 16;
     self.viewModel = [[JTKCreatePostEditorViewModel alloc] init];
     self.view.backgroundColor = UIColor.whiteColor;
     [self buildPostTextField];
-    [self enableDismissingKeyboardWhenTappingElsewhere];
+    [[JTKViewUtil sharedInstance] enableHidingKeyboardWhenTappingElsewhereInView:self.view];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -117,18 +118,6 @@ CGFloat const kMargin = 16;
     UIEdgeInsets newAdditionalSafeArea = self.additionalSafeAreaInsets;
     newAdditionalSafeArea.bottom -= keyboardSize.height;
     self.additionalSafeAreaInsets = newAdditionalSafeArea;
-}
-
-- (void)enableDismissingKeyboardWhenTappingElsewhere {
-    UITapGestureRecognizer *tapGestureRecognizer =
-            [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                    action:@selector(stopEditingWhenTappingElsewhere:)];
-    tapGestureRecognizer.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapGestureRecognizer];
-}
-
-- (void)stopEditingWhenTappingElsewhere:(UITapGestureRecognizer *)sender {
-    [self.view endEditing:YES];
 }
 
 @end

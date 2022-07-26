@@ -9,6 +9,7 @@
 
 #import "JTKContainerSchemeHelper.h"
 #import "JTKSignInViewModel.h"
+#import "JTKViewUtil.h"
 
 #import "Masonry.h"
 #import "MaterialButtons.h"
@@ -45,7 +46,7 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
     [super viewDidLoad];
     self.viewModel = [[JTKSignInViewModel alloc] init];
     self.view.backgroundColor = UIColor.whiteColor;
-    [self enableDismissingKeyboardWhenTappingElsewhere];
+    [[JTKViewUtil sharedInstance] enableHidingKeyboardWhenTappingElsewhereInView:self.view];
     [self buildUsernameTextField];
     [self buildPasswordTextField];
     [self buildSignInButton];
@@ -150,18 +151,6 @@ static CGFloat const kGoSignUpButtonLabelFontSize = 12;
 - (void)resetTextFields {
     self.usernameTextField.text = @"";
     self.passwordTextField.text = @"";
-}
-
-- (void)enableDismissingKeyboardWhenTappingElsewhere {
-    UITapGestureRecognizer *tapGestureRecognizer =
-            [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                    action:@selector(stopEditingWhenTappingElsewhere:)];
-    tapGestureRecognizer.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tapGestureRecognizer];
-}
-
-- (void)stopEditingWhenTappingElsewhere:(UITapGestureRecognizer *)sender {
-    [self.view endEditing:YES];
 }
 
 @end

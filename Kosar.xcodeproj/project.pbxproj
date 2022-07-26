@@ -43,6 +43,7 @@
 		2BBC10BF288D1EFF00541A85 /* JTKSessionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10BE288D1EFF00541A85 /* JTKSessionsService.m */; };
 		2BBC10C2288D209D00541A85 /* JTKUsernameCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10C1288D209D00541A85 /* JTKUsernameCredentials.m */; };
 		2BBC10C5288D24A900541A85 /* JTKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10C4288D24A900541A85 /* JTKSession.m */; };
+		2BCB35E92890568800A7DA3D /* JTKViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB35E82890568800A7DA3D /* JTKViewUtil.m */; };
 		2BE9EBF82881BFC600F03C7D /* JTKApiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9EBF62881BFC600F03C7D /* JTKApiService.m */; };
 		2BE9EBFB2881C9FF00F03C7D /* JTKPostsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9EBF92881C9FF00F03C7D /* JTKPostsService.m */; };
 		616468926ECA3C422703DBCE /* Pods_KosarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64527FE02D2BA87EEE632233 /* Pods_KosarTests.framework */; };
@@ -129,6 +130,8 @@
 		2BBC10C1288D209D00541A85 /* JTKUsernameCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKUsernameCredentials.m; sourceTree = "<group>"; };
 		2BBC10C3288D24A900541A85 /* JTKSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKSession.h; sourceTree = "<group>"; };
 		2BBC10C4288D24A900541A85 /* JTKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSession.m; sourceTree = "<group>"; };
+		2BCB35E72890568800A7DA3D /* JTKViewUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKViewUtil.h; sourceTree = "<group>"; };
+		2BCB35E82890568800A7DA3D /* JTKViewUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKViewUtil.m; sourceTree = "<group>"; };
 		2BE9EBF62881BFC600F03C7D /* JTKApiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTKApiService.m; sourceTree = "<group>"; };
 		2BE9EBF72881BFC600F03C7D /* JTKApiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTKApiService.h; sourceTree = "<group>"; };
 		2BE9EBF92881C9FF00F03C7D /* JTKPostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTKPostsService.m; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 			children = (
 				2B447421284790F200DCC67D /* JTKContainerSchemeHelper.h */,
 				2B447422284793A800DCC67D /* JTKContainerSchemeHelper.m */,
+				2BCB35E72890568800A7DA3D /* JTKViewUtil.h */,
+				2BCB35E82890568800A7DA3D /* JTKViewUtil.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 			files = (
 				2BE9EBF82881BFC600F03C7D /* JTKApiService.m in Sources */,
 				2B4473EE28471E5A00DCC67D /* ViewController.m in Sources */,
+				2BCB35E92890568800A7DA3D /* JTKViewUtil.m in Sources */,
 				2B44741D2847200B00DCC67D /* JTKMainController.m in Sources */,
 				2B9F6F76288EA08800E7F6BC /* JTKSignUpController.m in Sources */,
 				2B9F6F7C288EF58A00E7F6BC /* JTKUsersService.m in Sources */,
