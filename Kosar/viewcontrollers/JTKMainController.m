@@ -123,8 +123,6 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)setupTabViewControllers {
     self.viewControllers = @[
         [self createTabWithViewController:[[JTKHomeController alloc] init]],
-        [self createTabWithViewController:[[JTKHomeController alloc] init]],
-        [self createTabWithViewController:[[JTKHomeController alloc] init]]
     ];
 }
 
@@ -136,13 +134,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     UITabBarItem *homeItem = [[UITabBarItem alloc] initWithTitle:@"Home"
                                                            image:[UIImage imageNamed:@"timeline-timeline_symbol"]
                                                              tag:0];
-    UITabBarItem *homeItem2 = [[UITabBarItem alloc] initWithTitle:@"Home2"
-                                                            image:[UIImage imageNamed:@"timeline-timeline_symbol"]
-                                                              tag:1];
-    UITabBarItem *homeItem3 = [[UITabBarItem alloc] initWithTitle:@"Home3"
-                                                            image:[UIImage imageNamed:@"timeline-timeline_symbol"]
-                                                              tag:2];
-    self.bottomNavigationBar.items = @[homeItem, homeItem2, homeItem3];
+    self.bottomNavigationBar.items = @[homeItem];
     self.bottomNavigationBar.selectedItem = homeItem;
     self.bottomNavigationBar.delegate = self;
 }
