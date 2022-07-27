@@ -15,6 +15,7 @@
 #import "JTKModalHandler.h"
 
 #import "Masonry.h"
+#import "MaterialBottomNavigation.h"
 #import "MaterialBottomNavigation+Theming.h"
 #import "MaterialButtons.h"
 #include <MaterialComponents/MDCContainerScheme.h>
@@ -90,7 +91,7 @@ static CGSize const kFloatingActionButtonSize = {56, 56};
 
 @end
 
-@interface JTKMainController ()
+@interface JTKMainController () <MDCBottomNavigationBarDelegate>
 
 @property (nonatomic) JTKAuthenticationModalHandler *authenticationModalHandler;
 @property (nonatomic) JTKCreatePostModalHandler *createPostModalHandler;

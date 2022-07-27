@@ -9,7 +9,9 @@
 
 #import "JTKPost.h"
 
-@interface JTKPostViewModel ()
+#import <IGListKit/IGListKit.h>
+
+@interface JTKPostViewModel () <IGListDiffable>
 
 @property (nonatomic) JTKPost *post;
 

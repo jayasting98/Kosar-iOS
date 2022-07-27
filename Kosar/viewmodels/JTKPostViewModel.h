@@ -7,11 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import <IGListKit/IGListKit.h>
-
 @class JTKPost;
 
-@interface JTKPostViewModel : NSObject <IGListDiffable>
+@interface JTKPostViewModel : NSObject
 
 @property (nonatomic, readonly) NSString *message;
 

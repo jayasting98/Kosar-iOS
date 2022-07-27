@@ -7,8 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MaterialBottomNavigation.h"
-
-@interface JTKMainController : UITabBarController <MDCBottomNavigationBarDelegate>
+@interface JTKMainController : UITabBarController
 
 @end
