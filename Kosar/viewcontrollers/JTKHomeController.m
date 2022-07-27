@@ -11,6 +11,7 @@
 #import "JTKPostSectionController.h"
 #import "JTKPostsViewModel.h"
 
+#import "Masonry.h"
 #import <IGListKit/IGListKit.h>
 
 static NSString * const kProfileIconImageName = @"person-person_symbol";
@@ -19,7 +20,7 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 
 @interface JTKHomeController () <IGListAdapterDataSource>
 
-@property (nonatomic) UICollectionView *collectionView;
+@property (nonatomic) UICollectionView *postsCollectionView;
 
 @property (nonatomic) IGListAdapter *adapter;
 
@@ -33,9 +34,7 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.postsViewModel = [[JTKPostsViewModel alloc] init];
-    UICollectionViewLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-    [self.view addSubview:self.collectionView];
+    [self buildPostsCollectionView];
     IGListAdapterUpdater *updater = [[IGListAdapterUpdater alloc] init];
     self.adapter = [[IGListAdapter alloc] initWithUpdater:updater viewController:self];
     self.adapter.collectionView = self.collectionView;
@@ -43,9 +42,21 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
     [self buildProfileBarButton];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    self.collectionView.frame = self.view.bounds;
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    [self layoutPostsCollectionView];
+}
+
+- (void)buildPostsCollectionView {
+    UICollectionViewLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    self.postsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    [self.view addSubview:self.postsCollectionView];
+}
+
+- (void)layoutPostsCollectionView {
+    [self.postsCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 - (void)buildProfileBarButton {
