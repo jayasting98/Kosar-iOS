@@ -102,18 +102,30 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.authenticationModalHandler = [[JTKAuthenticationModalHandler alloc] init];
-    self.authenticationModalHandler.presentingViewController = self;
-    self.createPostModalHandler = [[JTKCreatePostModalHandler alloc] init];
-    self.createPostModalHandler.presentingViewController = self;
+    [self setupAuthenticationModalHandler];
+    [self setupCreatePostModalHandler];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self buildBottomNavigationBar];
+    [self setupTabViewControllers];
+    [self buildFloatingActionButton];
+}
+
+- (void)setupAuthenticationModalHandler {
+    self.authenticationModalHandler = [[JTKAuthenticationModalHandler alloc] init];
+    self.authenticationModalHandler.presentingViewController = self;
+}
+
+- (void)setupCreatePostModalHandler {
+    self.createPostModalHandler = [[JTKCreatePostModalHandler alloc] init];
+    self.createPostModalHandler.presentingViewController = self;
+}
+
+- (void)setupTabViewControllers {
     self.viewControllers = @[
         [self createTabWithViewController:[[JTKHomeController alloc] init]],
         [self createTabWithViewController:[[JTKHomeController alloc] init]],
         [self createTabWithViewController:[[JTKHomeController alloc] init]]
     ];
-    [self buildFloatingActionButton];
 }
 
 - (void)buildBottomNavigationBar {
