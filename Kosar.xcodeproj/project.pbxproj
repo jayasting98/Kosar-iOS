@@ -44,6 +44,7 @@
 		2BBC10C2288D209D00541A85 /* JTKUsernameCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10C1288D209D00541A85 /* JTKUsernameCredentials.m */; };
 		2BBC10C5288D24A900541A85 /* JTKSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC10C4288D24A900541A85 /* JTKSession.m */; };
 		2BCB35E92890568800A7DA3D /* JTKViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB35E82890568800A7DA3D /* JTKViewUtil.m */; };
+		2BCB35EC2890D26E00A7DA3D /* JTKModalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCB35EB2890D26E00A7DA3D /* JTKModalHandler.m */; };
 		2BE9EBF82881BFC600F03C7D /* JTKApiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9EBF62881BFC600F03C7D /* JTKApiService.m */; };
 		2BE9EBFB2881C9FF00F03C7D /* JTKPostsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9EBF92881C9FF00F03C7D /* JTKPostsService.m */; };
 		616468926ECA3C422703DBCE /* Pods_KosarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64527FE02D2BA87EEE632233 /* Pods_KosarTests.framework */; };
@@ -132,6 +133,8 @@
 		2BBC10C4288D24A900541A85 /* JTKSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKSession.m; sourceTree = "<group>"; };
 		2BCB35E72890568800A7DA3D /* JTKViewUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKViewUtil.h; sourceTree = "<group>"; };
 		2BCB35E82890568800A7DA3D /* JTKViewUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKViewUtil.m; sourceTree = "<group>"; };
+		2BCB35EA2890D26E00A7DA3D /* JTKModalHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTKModalHandler.h; sourceTree = "<group>"; };
+		2BCB35EB2890D26E00A7DA3D /* JTKModalHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTKModalHandler.m; sourceTree = "<group>"; };
 		2BE9EBF62881BFC600F03C7D /* JTKApiService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTKApiService.m; sourceTree = "<group>"; };
 		2BE9EBF72881BFC600F03C7D /* JTKApiService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTKApiService.h; sourceTree = "<group>"; };
 		2BE9EBF92881C9FF00F03C7D /* JTKPostsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTKPostsService.m; sourceTree = "<group>"; };
@@ -327,6 +330,8 @@
 				2B447422284793A800DCC67D /* JTKContainerSchemeHelper.m */,
 				2BCB35E72890568800A7DA3D /* JTKViewUtil.h */,
 				2BCB35E82890568800A7DA3D /* JTKViewUtil.m */,
+				2BCB35EA2890D26E00A7DA3D /* JTKModalHandler.h */,
+				2BCB35EB2890D26E00A7DA3D /* JTKModalHandler.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -605,6 +610,7 @@
 				2BBC10B5288C437200541A85 /* JTKSignInController.m in Sources */,
 				2B4473E828471E5A00DCC67D /* AppDelegate.m in Sources */,
 				2B17A7CA2853300F00B73DF7 /* JTKPostViewModel.m in Sources */,
+				2BCB35EC2890D26E00A7DA3D /* JTKModalHandler.m in Sources */,
 				2B4473F928471E5C00DCC67D /* main.m in Sources */,
 				2BBC10B8288C48F200541A85 /* JTKSignInViewModel.m in Sources */,
 				2B447426284863C800DCC67D /* JTKPostSectionController.m in Sources */,

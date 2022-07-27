@@ -12,6 +12,7 @@
 #import "JTKContainerSchemeHelper.h"
 #import "JTKCreatePostModalController.h"
 #import "JTKHomeController.h"
+#import "JTKModalHandler.h"
 
 #import "Masonry.h"
 #import "MaterialBottomNavigation+Theming.h"
@@ -24,33 +25,27 @@ CGFloat const kFloatingActionButtonMarginBottom = 16;
 CGFloat const kFloatingActionButtonMarginRight = 16;
 CGSize const kFloatingActionButtonSize = {56, 56};
 
-@interface JTKCreatePostModalHandler : NSObject <JTKCreatePostModalDelegate>
+@interface JTKCreatePostModalHandler : JTKModalHandler<JTKMainController *, JTKCreatePostModalController *>
 
-@property (nonatomic) UIViewController *presentingViewController;
+@end
 
-@property (nonatomic) JTKCreatePostModalController *createPostModalController;
+@interface JTKCreatePostModalHandler () <JTKCreatePostModalDelegate>
 
 @end
 
 @implementation JTKCreatePostModalHandler
 
-- (instancetype)initWithPresentingViewController:(UIViewController *)presentingViewController {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        _presentingViewController = presentingViewController;
-        _createPostModalController = [[JTKCreatePostModalController alloc] init];
-        _createPostModalController.modalDelegate = self;
-        _createPostModalController.modalPresentationStyle = UIModalPresentationFullScreen;
+        self.modalViewController = [[JTKCreatePostModalController alloc] init];
+        self.modalViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     }
     return self;
 }
 
-- (void)present {
-    [self.presentingViewController presentViewController:self.createPostModalController animated:YES completion:nil];
-}
-
 - (void)reactToCloseButtonTap {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissAnimated:YES withCompletionHandler:nil];
 }
 
 - (void)reactToCreateButtonTapWithInvalidPost {
@@ -58,44 +53,36 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 }
 
 - (void)reactToCreateButtonTapWithValidPost {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissAnimated:YES withCompletionHandler:nil];
 }
 
 @end
 
-@interface JTKAuthenticationModalHandler : NSObject <JTKAuthenticationStateObserver>
+@interface JTKAuthenticationModalHandler : JTKModalHandler<JTKMainController *, JTKAuthenticationModalController *>
 
-@property (nonatomic, weak) UIViewController *presentingViewController;
+@end
 
-@property (nonatomic) JTKAuthenticationModalController *authenticationModalController;
+@interface JTKAuthenticationModalHandler () <JTKAuthenticationStateObserver>
 
 @end
 
 @implementation JTKAuthenticationModalHandler
 
-- (instancetype)initWithPresentingViewController:(UIViewController *)presentingViewController {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        _presentingViewController = presentingViewController;
-        _authenticationModalController = [[JTKAuthenticationModalController alloc] init];
-        _authenticationModalController.modalPresentationStyle = UIModalPresentationFullScreen;
+        self.modalViewController = [[JTKAuthenticationModalController alloc] init];
+        self.modalViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     }
     return self;
 }
 
-- (void)present {
-    if ([self.authenticationModalController isBeingPresented]) {
-        return;
-    }
-    [self.presentingViewController presentViewController:self.authenticationModalController animated:YES completion:nil];
-}
-
 - (void)reactToSignIn {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissAnimated:YES withCompletionHandler:nil];
 }
 
 - (void)reactToSignOut {
-    [self present];
+    [self presentAnimated:YES withCompletionHandler:nil];
 }
 
 @end
@@ -103,6 +90,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 @interface JTKMainController ()
 
 @property (nonatomic) JTKAuthenticationModalHandler *authenticationModalHandler;
+@property (nonatomic) JTKCreatePostModalHandler *createPostModalHandler;
 
 @property (nonatomic) MDCBottomNavigationBar *bottomNavigationBar;
 @property (nonatomic) MDCFloatingButton *floatingActionButton;
@@ -114,7 +102,10 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.authenticationModalHandler = [[JTKAuthenticationModalHandler alloc] initWithPresentingViewController:self];
+    self.authenticationModalHandler = [[JTKAuthenticationModalHandler alloc] init];
+    self.authenticationModalHandler.presentingViewController = self;
+    self.createPostModalHandler = [[JTKCreatePostModalHandler alloc] init];
+    self.createPostModalHandler.presentingViewController = self;
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self buildBottomNavigationBar];
     self.viewControllers = @[
@@ -204,7 +195,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     if ([[JTKAuthService sharedInstance] isSignedIn]) {
         return;
     }
-    [self.authenticationModalHandler present];
+    [self.authenticationModalHandler presentAnimated:YES withCompletionHandler:nil];
 }
 
 - (UINavigationController *)createTabWithViewController:(UIViewController *)viewController {
@@ -219,8 +210,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 }
 
 - (void)presentCreatePostModal {
-    JTKCreatePostModalHandler *modalHandler = [[JTKCreatePostModalHandler alloc] initWithPresentingViewController:self];
-    [modalHandler present];
+    [self.createPostModalHandler presentAnimated:YES withCompletionHandler:nil];
 }
 
 @end
