@@ -22,7 +22,7 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 
 @property (nonatomic) UICollectionView *postsCollectionView;
 
-@property (nonatomic) IGListAdapter *adapter;
+@property (nonatomic) IGListAdapter *postsAdapter;
 
 @property (nonatomic) JTKPostsViewModel *postsViewModel;
 
@@ -35,10 +35,7 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
     // Do any additional setup after loading the view.
     self.postsViewModel = [[JTKPostsViewModel alloc] init];
     [self buildPostsCollectionView];
-    IGListAdapterUpdater *updater = [[IGListAdapterUpdater alloc] init];
-    self.adapter = [[IGListAdapter alloc] initWithUpdater:updater viewController:self];
-    self.adapter.collectionView = self.collectionView;
-    self.adapter.dataSource = self;
+    [self setupPostsAdapter];
     [self buildProfileBarButton];
 }
 
@@ -57,6 +54,13 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
     [self.postsCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+}
+
+- (void)setupPostsAdapter {
+    IGListAdapterUpdater *updater = [[IGListAdapterUpdater alloc] init];
+    self.postsAdapter = [[IGListAdapter alloc] initWithUpdater:updater viewController:self];
+    self.postsAdapter.collectionView = self.postsCollectionView;
+    self.postsAdapter.dataSource = self;
 }
 
 - (void)buildProfileBarButton {
