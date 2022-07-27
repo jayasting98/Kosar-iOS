@@ -19,6 +19,9 @@
 #import "MaterialButtons.h"
 #include <MaterialComponents/MDCContainerScheme.h>
 
+NSString * const kHomeTabBarItemTitle = @"Home";
+
+NSString * const kHomeTabBarItemIcon = @"timeline-timeline_symbol";
 NSString * const kFloatingActionButtonIcon = @"add-add_symbol";
 
 CGFloat const kFloatingActionButtonMarginBottom = 16;
@@ -131,8 +134,8 @@ CGSize const kFloatingActionButtonSize = {56, 56};
     [self.view addSubview:self.bottomNavigationBar];
     self.bottomNavigationBar.titleVisibility = MDCBottomNavigationBarTitleVisibilitySelected;
     self.bottomNavigationBar.alignment = MDCBottomNavigationBarAlignmentJustifiedAdjacentTitles;
-    UITabBarItem *homeItem = [[UITabBarItem alloc] initWithTitle:@"Home"
-                                                           image:[UIImage imageNamed:@"timeline-timeline_symbol"]
+    UITabBarItem *homeItem = [[UITabBarItem alloc] initWithTitle:kHomeTabBarItemTitle
+                                                           image:[UIImage imageNamed:kHomeTabBarItemIcon]
                                                              tag:0];
     self.bottomNavigationBar.items = @[homeItem];
     self.bottomNavigationBar.selectedItem = homeItem;
