@@ -13,8 +13,8 @@
 #import "Masonry.h"
 #import "MaterialTextControls+OutlinedTextAreas.h"
 
-NSString *kPostTextFieldLabelText = @"Message";
-NSString *kPostTextFieldPlaceholderText = @"Write your message";
+NSString *kPostMessageTextAreaLabelText = @"Message";
+NSString *kPostMessageTextAreaPlaceholderText = @"Write your message";
 
 CGFloat const kMargin = 16;
 
@@ -22,7 +22,7 @@ CGFloat const kMargin = 16;
 
 @property (nonatomic)  JTKCreatePostEditorViewModel *viewModel;
 
-@property (nonatomic) MDCOutlinedTextArea *postTextField;
+@property (nonatomic) MDCOutlinedTextArea *postMessageTextArea;
 
 @end
 
@@ -33,13 +33,13 @@ CGFloat const kMargin = 16;
     // Do any additional setup after loading the view.
     self.viewModel = [[JTKCreatePostEditorViewModel alloc] init];
     self.view.backgroundColor = UIColor.whiteColor;
-    [self buildPostTextField];
+    [self buildPostMessageTextArea];
     [[JTKViewUtil sharedInstance] enableHidingKeyboardWhenTappingElsewhereInView:self.view];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    [self layoutPostTextField];
+    [self layoutPostMessageTextArea];
 }
 
 - (BOOL)hasValidPost {
@@ -50,33 +50,33 @@ CGFloat const kMargin = 16;
     [self.viewModel createPost];
 }
 
-- (void)buildPostTextField {
-    self.postTextField = [[MDCOutlinedTextArea alloc] init];
-    [self.view addSubview:self.postTextField];
-    self.postTextField.label.text = kPostTextFieldLabelText;
-    self.postTextField.textView.text = self.viewModel.text;
-    self.postTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
-    self.postTextField.placeholder = kPostTextFieldPlaceholderText;
-    self.postTextField.textView.delegate = self;
+- (void)buildPostMessageTextArea {
+    self.postMessageTextArea = [[MDCOutlinedTextArea alloc] init];
+    [self.view addSubview:self.postMessageTextArea];
+    self.postMessageTextArea.label.text = kPostMessageTextAreaLabelText;
+    self.postMessageTextArea.textView.text = self.viewModel.message;
+    self.postMessageTextArea.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+    self.postMessageTextArea.placeholder = kPostMessageTextAreaPlaceholderText;
+    self.postMessageTextArea.textView.delegate = self;
 }
 
-- (void)layoutPostTextField {
+- (void)layoutPostMessageTextArea {
     UIEdgeInsets margin = self.view.safeAreaInsets;
     margin.left += kMargin;
     margin.top += kMargin;
     margin.right += kMargin;
     margin.bottom += kMargin;
-    [self.postTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self.postMessageTextArea mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(margin);
     }];
-    self.postTextField.preferredContainerHeight = self.view.bounds.size.height - margin.top - margin.bottom;
+    self.postMessageTextArea.preferredContainerHeight = self.view.bounds.size.height - margin.top - margin.bottom;
 }
 
 - (BOOL)textView:(UITextView *)textView
         shouldChangeTextInRange:(NSRange)range
                 replacementText:(NSString *)string {
-    NSString *updatedString = [self.viewModel.text stringByReplacingCharactersInRange:range withString:string];
-    self.viewModel.text = updatedString;
+    NSString *updatedString = [self.viewModel.message stringByReplacingCharactersInRange:range withString:string];
+    self.viewModel.message = updatedString;
     return YES;
 }
 

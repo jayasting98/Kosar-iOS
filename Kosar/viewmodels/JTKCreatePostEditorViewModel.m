@@ -19,7 +19,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _text = [[NSString alloc] init];
+        _message = [[NSString alloc] init];
     }
     return self;
 }
@@ -30,7 +30,7 @@
 
 - (void)createPost {
     JTKPost *post = [[JTKPost alloc] init];
-    post.text = self.text;
+    post.message = self.message;
     [[JTKPostsService sharedInstance] createPost:post
                           withClientErrorHandler:nil
                           withServerErrorHandler:nil

@@ -13,7 +13,7 @@
 
 @interface JTKPostViewModel : NSObject <IGListDiffable>
 
-@property (nonatomic, readonly) NSString *text;
+@property (nonatomic, readonly) NSString *message;
 
 - (instancetype)initWithPost:(JTKPost *)post;
 

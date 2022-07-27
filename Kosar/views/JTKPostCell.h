@@ -9,6 +9,6 @@
 
 @interface JTKPostCell : UICollectionViewCell
 
-@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSString *message;
 
 @end

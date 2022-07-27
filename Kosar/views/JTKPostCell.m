@@ -9,7 +9,7 @@
 
 @interface JTKPostCell ()
 
-@property (nonatomic) UILabel *textLabel;
+@property (nonatomic) UILabel *messageLabel;
 
 @end
 
@@ -23,21 +23,21 @@
 }
 
 - (void)setupSubviews {
-    self.textLabel = [[UILabel alloc] init];
-    [self.contentView addSubview:self.textLabel];
+    self.messageLabel = [[UILabel alloc] init];
+    [self.contentView addSubview:self.messageLabel];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGFloat margin = 8.0;
     CGRect bounds = self.contentView.bounds;
-    self.textLabel.frame = CGRectMake(margin, 0, bounds.size.width - margin * 2, bounds.size.height);
+    self.messageLabel.frame = CGRectMake(margin, 0, bounds.size.width - margin * 2, bounds.size.height);
 }
 
-- (void)setText:(NSString *)text {
-    _text = [text copy];
+- (void)setMessage:(NSString *)message {
+    _message = [message copy];
 
-    self.textLabel.text = _text;
+    self.messageLabel.text = _message;
 }
 
 @end

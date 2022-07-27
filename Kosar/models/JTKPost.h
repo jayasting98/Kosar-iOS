@@ -10,6 +10,6 @@
 @interface JTKPost : NSObject
 
 @property (nonatomic) NSString *postId;
-@property (nonatomic) NSString *text;
+@property (nonatomic) NSString *message;
 
 @end

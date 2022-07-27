@@ -20,7 +20,7 @@
 - (instancetype)initWithPost:(JTKPost *)post {
     if (self = [super init]) {
         self.post = post;
-        _text = post.text;
+        _message = post.message;
     }
     return self;
 }

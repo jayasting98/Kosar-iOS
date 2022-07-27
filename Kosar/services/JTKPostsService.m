@@ -43,7 +43,7 @@ static NSString * const kPostMessagePostDataKey = @"message";
         withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
             withSuccessHandler:(void (^)(JTKPost *))successHandler {
     NSDictionary *postDataDictionary = @{
-        kPostMessagePostDataKey: post.text,
+        kPostMessagePostDataKey: post.message,
     };
     NSData *postData = [NSJSONSerialization dataWithJSONObject:postDataDictionary options:0 error:nil];
     void (^successDataHandler)(NSData *) = ^(NSData *data) {
@@ -53,7 +53,7 @@ static NSString * const kPostMessagePostDataKey = @"message";
         NSDictionary *responseDataDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         JTKPost *createdPost = [[JTKPost alloc] init];
         createdPost.postId = responseDataDictionary[kPostIdPostDataKey];
-        createdPost.text = responseDataDictionary[kPostMessagePostDataKey];
+        createdPost.message = responseDataDictionary[kPostMessagePostDataKey];
         successHandler(createdPost);
     };
     NSString *completePath = [self createCompletePathWithRelativePath:kCreatePostRelativePath];

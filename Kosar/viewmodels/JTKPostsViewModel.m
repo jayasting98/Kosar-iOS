@@ -40,7 +40,7 @@
         NSString *newObject = [NSString stringWithFormat:@"%d", arc4random()];
         JTKPost *post = [[JTKPost alloc] init];
         post.postId = [NSString stringWithFormat:@"%d", i];
-        post.text = newObject;
+        post.message = newObject;
         [list addObject:post];
     }
     return list;

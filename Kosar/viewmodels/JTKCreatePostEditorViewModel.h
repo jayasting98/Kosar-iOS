@@ -9,7 +9,7 @@
 
 @interface JTKCreatePostEditorViewModel : NSObject
 
-@property (nonatomic) NSString *text;
+@property (nonatomic) NSString *message;
 
 - (BOOL)hasValidPost;
 - (void)createPost;

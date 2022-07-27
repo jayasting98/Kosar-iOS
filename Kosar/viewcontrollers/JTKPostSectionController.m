@@ -28,7 +28,7 @@
     JTKPostCell *cell = [self.collectionContext dequeueReusableCellOfClass:JTKPostCell.class
                                                       forSectionController:self
                                                                    atIndex:index];
-    cell.text = self.postViewModel.text;
+    cell.message = self.postViewModel.message;
     return cell;
 }
 
