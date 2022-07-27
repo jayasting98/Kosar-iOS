@@ -137,15 +137,11 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 
 - (void)layoutBottomNavigationBar {
     CGSize size = [self.bottomNavigationBar sizeThatFits:self.view.bounds.size];
-    CGRect bottomNavigationBarFrame = CGRectMake(
-        0,
-        self.view.bounds.size.height - size.height,
-        size.width,
-        size.height
-    );
-    bottomNavigationBarFrame.size.height += self.view.safeAreaInsets.bottom;
-    bottomNavigationBarFrame.origin.y -= self.view.safeAreaInsets.bottom;
-    self.bottomNavigationBar.frame = bottomNavigationBarFrame;
+    size.height += self.view.safeAreaInsets.bottom;
+    [self.bottomNavigationBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(size);
+        make.left.right.and.bottom.equalTo(self.view);
+    }];
 }
 
 - (void)buildFloatingActionButton {
@@ -161,7 +157,7 @@ CGSize const kFloatingActionButtonSize = {56, 56};
 - (void)layoutFloatingActionButton {
     UIEdgeInsets margin = self.view.safeAreaInsets;
     margin.right += kFloatingActionButtonMarginRight;
-    [self.floatingActionButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self.floatingActionButton mas_updateConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(kFloatingActionButtonSize);
         make.bottom.equalTo(self.bottomNavigationBar.mas_top).with.offset(-kFloatingActionButtonMarginBottom);
         make.right.equalTo(self.view.mas_right).with.offset(-margin.right);
