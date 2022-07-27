@@ -9,8 +9,8 @@
 
 #import "JTKCreatePostEditorController.h"
 
-NSString * const kTitle = @"New Post";
-NSString * const kCreateBarButtonTitle = @"Create";
+static NSString * const kTitle = @"New Post";
+static NSString * const kCreateBarButtonTitle = @"Create";
 
 @interface JTKCreatePostModalController ()
 

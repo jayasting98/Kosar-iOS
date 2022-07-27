@@ -19,14 +19,14 @@
 #import "MaterialButtons.h"
 #include <MaterialComponents/MDCContainerScheme.h>
 
-NSString * const kHomeTabBarItemTitle = @"Home";
+static NSString * const kHomeTabBarItemTitle = @"Home";
 
-NSString * const kHomeTabBarItemIcon = @"timeline-timeline_symbol";
-NSString * const kFloatingActionButtonIcon = @"add-add_symbol";
+static NSString * const kHomeTabBarItemIcon = @"timeline-timeline_symbol";
+static NSString * const kFloatingActionButtonIcon = @"add-add_symbol";
 
-CGFloat const kFloatingActionButtonMarginBottom = 16;
-CGFloat const kFloatingActionButtonMarginRight = 16;
-CGSize const kFloatingActionButtonSize = {56, 56};
+static CGFloat const kFloatingActionButtonMarginBottom = 16;
+static CGFloat const kFloatingActionButtonMarginRight = 16;
+static CGSize const kFloatingActionButtonSize = {56, 56};
 
 @interface JTKCreatePostModalHandler : JTKModalHandler<JTKMainController *, JTKCreatePostModalController *>
 

@@ -13,10 +13,10 @@
 #import "Masonry.h"
 #import "MaterialTextControls+OutlinedTextAreas.h"
 
-NSString *kPostMessageTextAreaLabelText = @"Message";
-NSString *kPostMessageTextAreaPlaceholderText = @"Write your message";
+static NSString * const kPostMessageTextAreaLabelText = @"Message";
+static NSString * const kPostMessageTextAreaPlaceholderText = @"Write your message";
 
-CGFloat const kMargin = 16;
+static CGFloat const kMargin = 16;
 
 @interface JTKCreatePostEditorController () <UITextViewDelegate>
 
