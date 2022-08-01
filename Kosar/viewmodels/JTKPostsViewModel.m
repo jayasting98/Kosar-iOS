@@ -9,6 +9,7 @@
 
 #import "JTKPost.h"
 #import "JTKPostViewModel.h"
+#import "JTKPostsService.h"
 
 @interface JTKPostsViewModel ()
 
@@ -20,7 +21,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.postModels = [JTKPostsViewModel createPlaceholderPosts];
+        self.postModels = [[NSArray alloc] init];
     }
     return self;
 }
@@ -34,16 +35,14 @@
     return posts;
 }
 
-+ (NSArray<JTKPost *> *)createPlaceholderPosts {
-    NSMutableArray<JTKPost *> *list = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 30; i++) {
-        NSString *newObject = [NSString stringWithFormat:@"%d", arc4random()];
-        JTKPost *post = [[JTKPost alloc] init];
-        post.postId = [NSString stringWithFormat:@"%d", i];
-        post.message = newObject;
-        [list addObject:post];
-    }
-    return list;
+- (void)getPostsWithCompletionHandler:(void (^)(void))completionHandler {
+    void (^successHandler)(NSArray<JTKPost *> *posts) = ^(NSArray<JTKPost *> *posts) {
+        self.postModels = posts;
+        completionHandler();
+    };
+    [[JTKPostsService sharedInstance] getPostsWithClientErrorHandler:nil
+                                              withServerErrorHandler:nil
+                                                  withSuccessHandler:successHandler];
 }
 
 @end
