@@ -39,6 +39,11 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
     [self buildProfileBarButton];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getPosts];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self layoutPostsCollectionView];
@@ -80,7 +85,7 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 }
 
 - (NSArray<id<IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter {
-    return self.postsViewModel.posts;
+    return (NSArray<id<IGListDiffable>> *) self.postsViewModel.posts;
 }
 
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id)object {
@@ -89,6 +94,15 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 
 - (UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter {
     return nil;
+}
+
+- (void)getPosts {
+    void (^completionHandler)(void) = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.postsAdapter performUpdatesAnimated:YES completion:nil];
+        });
+    };
+    [self.postsViewModel getPostsWithCompletionHandler:completionHandler];
 }
 
 @end
