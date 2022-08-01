@@ -7,34 +7,22 @@
 
 #import <Foundation/Foundation.h>
 
+@interface JTKApiRequestConfiguration : NSObject
+
+@property (nonatomic) NSArray<NSURLQueryItem *> *queryItems;
+@property (nonatomic, getter=isWithAuthorization) BOOL withAuthorization;
+@property (nonatomic) NSData *body;
+@property (nonatomic) void (^clientErrorHandler)(NSError *);
+@property (nonatomic) void (^serverErrorHandler)(NSHTTPURLResponse *);
+@property (nonatomic) void (^successHandler)(NSData *);
+
+@end
+
 @interface JTKApiService : NSObject
 
 + (instancetype)sharedInstance;
 
-- (void)postToPath:(NSString *)path
-            withQueryItems:(NSArray<NSURLQueryItem *> *)queryItems
-                  withBody:(NSData *)body
-    withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
-    withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
-        withSuccessHandler:(void (^)(NSData *))successHandler;
-
-- (void)postToPath:(NSString *)path
-                  withBody:(NSData *)body
-    withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
-    withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
-        withSuccessHandler:(void (^)(NSData *))successHandler;
-
-- (void)postWithAuthorizationToPath:(NSString *)path
-                     withQueryItems:(NSArray<NSURLQueryItem *> *)queryItems
-                           withBody:(NSData *)body
-             withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
-             withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
-                 withSuccessHandler:(void (^)(NSData *))successHandler;
-
-- (void)postWithAuthorizationToPath:(NSString *)path
-                           withBody:(NSData *)body
-             withClientErrorHandler:(void (^)(NSError *))clientErrorHandler
-             withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
-                 withSuccessHandler:(void (^)(NSData *))successHandler;
+- (void)postAtPath:(NSString *)path
+    withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *configuration))specifyRequestConfiguration;
 
 @end

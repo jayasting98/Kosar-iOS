@@ -68,12 +68,15 @@ static NSString * const kAuthenticationTokenSessionKey = @"authenticationToken";
     NSURLQueryItem *credentialsQuery = [NSURLQueryItem queryItemWithName:kCredentialsQueryName
                                                                    value:kUsernameCredentialsQueryValue];
     NSArray<NSURLQueryItem *> *queryItems = @[credentialsQuery];
-    [[JTKApiService sharedInstance] postToPath:completePath
-                                withQueryItems:queryItems
-                                      withBody:usernameCredentialsData
-                        withClientErrorHandler:clientErrorHandler
-                        withServerErrorHandler:serverErrorHandler
-                            withSuccessHandler:successDataHandler];
+    [[JTKApiService sharedInstance] postAtPath:completePath
+                    withConfigurationSpecifier:^(JTKApiRequestConfiguration *configuration) {
+        configuration.queryItems = queryItems;
+        configuration.withAuthorization = NO;
+        configuration.body = usernameCredentialsData;
+        configuration.clientErrorHandler = clientErrorHandler;
+        configuration.serverErrorHandler = serverErrorHandler;
+        configuration.successHandler = successDataHandler;
+    }];
 }
 
 @end

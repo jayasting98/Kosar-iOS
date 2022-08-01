@@ -69,11 +69,14 @@ static NSString * const kDateTimeCreatedCreateUserResponseKey = @"dateTimeCreate
         successHandler(createdUser);
     };
     NSString *completePath = [self createCompletePathWithRelativePath:kCreateUserRelativePath];
-    [[JTKApiService sharedInstance] postToPath:completePath
-                                      withBody:createUserRequestData
-                        withClientErrorHandler:clientErrorHandler
-                        withServerErrorHandler:serverErrorHandler
-                            withSuccessHandler:successDataHandler];
+    [[JTKApiService sharedInstance] postAtPath:completePath
+                    withConfigurationSpecifier:^(JTKApiRequestConfiguration *configuration) {
+        configuration.withAuthorization = NO;
+        configuration.body = createUserRequestData;
+        configuration.clientErrorHandler = clientErrorHandler;
+        configuration.serverErrorHandler = serverErrorHandler;
+        configuration.successHandler = successDataHandler;
+    }];
 }
 
 @end
