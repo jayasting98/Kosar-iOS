@@ -50,7 +50,8 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 }
 
 - (void)buildPostsCollectionView {
-    UICollectionViewLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
     self.postsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [self.view addSubview:self.postsCollectionView];
 }

@@ -19,9 +19,9 @@
 @implementation JTKPostSectionController
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    CGFloat width = self.collectionContext.containerSize.width;
-    CGFloat height = 40;
-    return CGSizeMake(width, height);
+    CGSize size = CGSizeZero;
+    size.width = self.collectionContext.containerSize.width;
+    return size;
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
@@ -29,6 +29,7 @@
                                                       forSectionController:self
                                                                    atIndex:index];
     cell.message = self.postViewModel.message;
+    [cell setNeedsUpdateConstraints];
     return cell;
 }
 

@@ -7,6 +7,10 @@
 
 #import "JTKPostCell.h"
 
+#import "Masonry.h"
+
+static UIEdgeInsets const kInsets = {8, 8, 8, 8};
+
 @interface JTKPostCell ()
 
 @property (nonatomic) UILabel *messageLabel;
@@ -16,28 +20,45 @@
 @implementation JTKPostCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+    self = [super initWithFrame:frame];
+    if (self) {
         [self setupSubviews];
     }
     return self;
 }
 
+- (void)updateConstraints {
+    [self updateMessageLabelConstraints];
+    [super updateConstraints];
+}
+
 - (void)setupSubviews {
+    [self setupMessageLabel];
+}
+
+- (void)setupMessageLabel {
     self.messageLabel = [[UILabel alloc] init];
     [self.contentView addSubview:self.messageLabel];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    CGFloat margin = 8.0;
-    CGRect bounds = self.contentView.bounds;
-    self.messageLabel.frame = CGRectMake(margin, 0, bounds.size.width - margin * 2, bounds.size.height);
+- (void)updateMessageLabelConstraints {
+    [self.messageLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView).with.insets(kInsets);
+    }];
 }
 
 - (void)setMessage:(NSString *)message {
-    _message = [message copy];
+    self.messageLabel.text = message;
+}
 
-    self.messageLabel.text = _message;
+- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    CGSize size = [self.contentView systemLayoutSizeFittingSize:layoutAttributes.size];
+    CGRect newFrame = layoutAttributes.frame;
+    newFrame.size.height = size.height;
+    layoutAttributes.frame = newFrame;
+    return layoutAttributes;
 }
 
 @end
