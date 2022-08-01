@@ -25,4 +25,13 @@
 - (void)postAtPath:(NSString *)path
     withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *configuration))specifyRequestConfiguration;
 
+- (void)getAtPath:(NSString *)path
+    withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *configuration))specifyRequestConfiguration;
+
+- (void)putAtPath:(NSString *)path
+    withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *configuration))specifyRequestConfiguration;
+
+- (void)deleteAtPath:(NSString *)path
+    withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *configuration))specifyRequestConfiguration;
+
 @end

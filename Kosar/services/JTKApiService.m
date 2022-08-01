@@ -12,6 +12,9 @@
 static NSString * const kServerUrlBuildSettingKey = @"SERVER_URL";
 
 static NSString * const kHttpPostMethod = @"POST";
+static NSString * const kHttpGetMethod = @"GET";
+static NSString * const kHttpPutMethod = @"PUT";
+static NSString * const kHttpDeleteMethod = @"DELETE";
 
 static NSString * const kContentTypeHeader = @"Content-Type";
 static NSString * const kJsonContentType = @"application/json";
@@ -102,6 +105,21 @@ static NSString * const kBearerAuthorizationHeaderValueTemplate = @"Bearer %@";
 - (void)postAtPath:(NSString *)path
         withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *))specifyRequestConfiguration {
     [self requestWithMethod:kHttpPostMethod atPath:path withConfigurationSpecifier:specifyRequestConfiguration];
+}
+
+- (void)getAtPath:(NSString *)path
+        withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *))specifyRequestConfiguration {
+    [self requestWithMethod:kHttpGetMethod atPath:path withConfigurationSpecifier:specifyRequestConfiguration];
+}
+
+- (void)putAtPath:(NSString *)path
+        withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *))specifyRequestConfiguration {
+    [self requestWithMethod:kHttpPutMethod atPath:path withConfigurationSpecifier:specifyRequestConfiguration];
+}
+
+- (void)deleteAtPath:(NSString *)path
+        withConfigurationSpecifier:(void (^)(JTKApiRequestConfiguration *))specifyRequestConfiguration {
+    [self requestWithMethod:kHttpDeleteMethod atPath:path withConfigurationSpecifier:specifyRequestConfiguration];
 }
 
 - (void)requestWithMethod:(NSString *)method
