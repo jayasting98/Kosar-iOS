@@ -44,6 +44,7 @@ static CGSize const kFloatingActionButtonSize = {56, 56};
     if (self) {
         self.modalViewController = [[JTKCreatePostModalController alloc] init];
         self.modalViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+        self.modalViewController.modalDelegate = self;
     }
     return self;
 }
