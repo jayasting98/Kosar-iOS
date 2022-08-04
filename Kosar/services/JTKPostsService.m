@@ -19,8 +19,6 @@ static NSString * const kPostIdPostDataKey = @"postId";
 static NSString * const kPostMessagePostDataKey = @"message";
 
 static NSString * const kPostsGetPostsResponseKey = @"posts";
-static NSString * const kPostIdGetPostsResponseKey = @"postId";
-static NSString * const kPostMessageGetPostsResponseKey = @"message";
 
 @interface JTKPostsService ()
 
@@ -56,9 +54,7 @@ static NSString * const kPostMessageGetPostsResponseKey = @"message";
             return;
         }
         NSDictionary *responseDataDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        JTKPost *createdPost = [[JTKPost alloc] init];
-        createdPost.postId = responseDataDictionary[kPostIdPostDataKey];
-        createdPost.message = responseDataDictionary[kPostMessagePostDataKey];
+        JTKPost *createdPost = [JTKPost parsePostResponseDictionary:responseDataDictionary];
         successHandler(createdPost);
     };
     NSString *completePath = [self createCompletePathWithRelativePath:kCreatePostRelativePath];
@@ -81,9 +77,7 @@ static NSString * const kPostMessageGetPostsResponseKey = @"message";
         NSDictionary *responseDataDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSMutableArray<JTKPost *> *posts = [[NSMutableArray alloc] init];
         for (NSDictionary *postResponseDictionary in responseDataDictionary[kPostsGetPostsResponseKey]) {
-            JTKPost *post = [[JTKPost alloc] init];
-            post.postId = postResponseDictionary[kPostIdGetPostsResponseKey];
-            post.message = postResponseDictionary[kPostMessageGetPostsResponseKey];
+            JTKPost *post = [JTKPost parsePostResponseDictionary:postResponseDictionary];
             [posts addObject:post];
         }
         successHandler(posts);
