@@ -28,7 +28,9 @@
     JTKPostCell *cell = [self.collectionContext dequeueReusableCellOfClass:JTKPostCell.class
                                                       forSectionController:self
                                                                    atIndex:index];
+    cell.authorUsername = self.postViewModel.authorUsername;
     cell.message = self.postViewModel.message;
+    cell.timeSinceCreation = self.postViewModel.timeSinceCreation;
     [cell setNeedsUpdateConstraints];
     return cell;
 }
