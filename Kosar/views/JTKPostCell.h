@@ -9,6 +9,8 @@
 
 @interface JTKPostCell : UICollectionViewCell
 
-@property (nonatomic, copy) NSString *message;
+@property (nonatomic) NSString *authorUsername;
+@property (nonatomic) NSString *message;
+@property (nonatomic) NSString *timeSinceCreation;
 
 @end
