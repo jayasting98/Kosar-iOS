@@ -12,6 +12,9 @@
 static UIEdgeInsets const kInsets = {8, 8, 8, 8};
 static CGFloat const kYGutter = 8;
 
+static CGFloat const kAuthorUsernameLabelFontSize = 14;
+static CGFloat const kTimeSinceCreationLabelFontSize = 10;
+
 @interface JTKPostCell ()
 
 @property (nonatomic) UILabel *authorUsernameLabel;
@@ -46,7 +49,7 @@ static CGFloat const kYGutter = 8;
 - (void)setupAuthorUsernameLabel {
     self.authorUsernameLabel = [[UILabel alloc] init];
     [self.contentView addSubview:self.authorUsernameLabel];
-    self.authorUsernameLabel.font = [UIFont systemFontOfSize:14];
+    self.authorUsernameLabel.font = [UIFont systemFontOfSize:kAuthorUsernameLabelFontSize];
 }
 
 - (void)setupMessageLabel {
@@ -58,7 +61,7 @@ static CGFloat const kYGutter = 8;
 - (void)setupTimeSinceCreationLabel {
     self.timeSinceCreationLabel = [[UILabel alloc] init];
     [self.contentView addSubview:self.timeSinceCreationLabel];
-    self.timeSinceCreationLabel.font = [UIFont systemFontOfSize:10];
+    self.timeSinceCreationLabel.font = [UIFont systemFontOfSize:kTimeSinceCreationLabelFontSize];
 }
 
 - (void)updateAuthorUsernameLabelConstraints {
