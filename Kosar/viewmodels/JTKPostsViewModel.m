@@ -27,6 +27,9 @@
 }
 
 - (NSArray<JTKPostViewModel *> *)posts {
+    self.postModels = [self.postModels sortedArrayUsingComparator:^NSComparisonResult(JTKPost *post1, JTKPost *post2) {
+        return [post2.dateTimeCreated compare:post1.dateTimeCreated];
+    }];
     NSMutableArray<JTKPostViewModel *> *posts = [[NSMutableArray alloc] init];
     for (JTKPost *post in self.postModels) {
         JTKPostViewModel *postViewModel = [[JTKPostViewModel alloc] initWithPost:post];
