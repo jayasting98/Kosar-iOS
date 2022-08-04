@@ -11,7 +11,9 @@
 
 @interface JTKPostViewModel : NSObject
 
+@property (nonatomic, readonly) NSString *authorUsername;
 @property (nonatomic, readonly) NSString *message;
+@property (nonatomic, readonly) NSString *timeSinceCreation;
 
 - (instancetype)initWithPost:(JTKPost *)post;
 
