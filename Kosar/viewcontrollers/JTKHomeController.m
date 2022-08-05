@@ -99,13 +99,14 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 
 - (void)getPosts {
     [self.postsViewModel resetData];
-    [self.postsAdapter performUpdatesAnimated:YES completion:nil];
-    void (^completionHandler)(void) = ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.postsAdapter performUpdatesAnimated:YES completion:nil];
-        });
-    };
-    [self.postsViewModel getPostsWithCompletionHandler:completionHandler];
+    [self.postsAdapter performUpdatesAnimated:YES completion:^(BOOL finished) {
+        void (^completionHandler)(void) = ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.postsAdapter performUpdatesAnimated:YES completion:nil];
+            });
+        };
+        [self.postsViewModel getPostsWithCompletionHandler:completionHandler];
+    }];
 }
 
 @end
