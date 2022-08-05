@@ -19,16 +19,19 @@
 @implementation JTKPostSectionController
 
 - (CGSize)sizeForItemAtIndex:(NSInteger)index {
-    CGFloat width = self.collectionContext.containerSize.width;
-    CGFloat height = 40;
-    return CGSizeMake(width, height);
+    CGSize size = CGSizeZero;
+    size.width = self.collectionContext.containerSize.width;
+    return size;
 }
 
 - (UICollectionViewCell *)cellForItemAtIndex:(NSInteger)index {
     JTKPostCell *cell = [self.collectionContext dequeueReusableCellOfClass:JTKPostCell.class
                                                       forSectionController:self
                                                                    atIndex:index];
+    cell.authorUsername = self.postViewModel.authorUsername;
     cell.message = self.postViewModel.message;
+    cell.timeSinceCreation = self.postViewModel.timeSinceCreation;
+    [cell setNeedsUpdateConstraints];
     return cell;
 }
 

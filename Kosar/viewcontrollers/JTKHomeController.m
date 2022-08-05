@@ -39,13 +39,19 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
     [self buildProfileBarButton];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getPosts];
+}
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self layoutPostsCollectionView];
 }
 
 - (void)buildPostsCollectionView {
-    UICollectionViewLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize;
     self.postsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [self.view addSubview:self.postsCollectionView];
 }
@@ -80,7 +86,7 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 }
 
 - (NSArray<id<IGListDiffable>> *)objectsForListAdapter:(IGListAdapter *)listAdapter {
-    return self.postsViewModel.posts;
+    return (NSArray<id<IGListDiffable>> *) self.postsViewModel.posts;
 }
 
 - (IGListSectionController *)listAdapter:(IGListAdapter *)listAdapter sectionControllerForObject:(id)object {
@@ -89,6 +95,18 @@ static NSString * const kSignOutProfileMenuElementTitle = @"Sign Out";
 
 - (UIView *)emptyViewForListAdapter:(IGListAdapter *)listAdapter {
     return nil;
+}
+
+- (void)getPosts {
+    [self.postsViewModel resetData];
+    [self.postsAdapter performUpdatesAnimated:YES completion:^(BOOL finished) {
+        void (^completionHandler)(void) = ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.postsAdapter performUpdatesAnimated:YES completion:nil];
+            });
+        };
+        [self.postsViewModel getPostsWithCompletionHandler:completionHandler];
+    }];
 }
 
 @end

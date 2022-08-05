@@ -15,4 +15,7 @@
 
 @property (nonatomic, readonly) NSArray<JTKPostViewModel *> *posts;
 
+- (void)resetData;
+- (void)getPostsWithCompletionHandler:(void (^)(void))completionHandler;
+
 @end

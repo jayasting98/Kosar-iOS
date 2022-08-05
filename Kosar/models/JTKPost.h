@@ -7,9 +7,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class JTKUser;
+
 @interface JTKPost : NSObject
 
 @property (nonatomic) NSString *postId;
 @property (nonatomic) NSString *message;
+@property (nonatomic) JTKUser *author;
+@property (nonatomic) NSDate *dateTimeCreated;
+
++ (JTKPost *)parsePostResponseDictionary:(NSDictionary *)postResponseDictionary;
 
 @end

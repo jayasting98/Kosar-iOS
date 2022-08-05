@@ -13,9 +13,12 @@
 static NSString * const kBasePostsPath = @"/posts";
 
 static NSString * const kCreatePostRelativePath = @"/";
+static NSString * const kGetPostsRelativePath = @"/";
 
 static NSString * const kPostIdPostDataKey = @"postId";
 static NSString * const kPostMessagePostDataKey = @"message";
+
+static NSString * const kPostsGetPostsResponseKey = @"posts";
 
 @interface JTKPostsService ()
 
@@ -51,15 +54,37 @@ static NSString * const kPostMessagePostDataKey = @"message";
             return;
         }
         NSDictionary *responseDataDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        JTKPost *createdPost = [[JTKPost alloc] init];
-        createdPost.postId = responseDataDictionary[kPostIdPostDataKey];
-        createdPost.message = responseDataDictionary[kPostMessagePostDataKey];
+        JTKPost *createdPost = [JTKPost parsePostResponseDictionary:responseDataDictionary];
         successHandler(createdPost);
     };
     NSString *completePath = [self createCompletePathWithRelativePath:kCreatePostRelativePath];
     [[JTKApiService sharedInstance] postAtPath:completePath
                     withConfigurationSpecifier:^(JTKApiRequestConfiguration *configuration) {
         configuration.body = postData;
+        configuration.clientErrorHandler = clientErrorHandler;
+        configuration.serverErrorHandler = serverErrorHandler;
+        configuration.successHandler = successDataHandler;
+    }];
+}
+
+- (void)getPostsWithClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+                withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+                    withSuccessHandler:(void (^)(NSArray<JTKPost *> *))successHandler {
+    void (^successDataHandler)(NSData *) = ^(NSData *data) {
+        if (!successHandler) {
+            return;
+        }
+        NSDictionary *responseDataDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSMutableArray<JTKPost *> *posts = [[NSMutableArray alloc] init];
+        for (NSDictionary *postResponseDictionary in responseDataDictionary[kPostsGetPostsResponseKey]) {
+            JTKPost *post = [JTKPost parsePostResponseDictionary:postResponseDictionary];
+            [posts addObject:post];
+        }
+        successHandler(posts);
+    };
+    NSString *completePath = [self createCompletePathWithRelativePath:kGetPostsRelativePath];
+    [[JTKApiService sharedInstance] getAtPath:completePath
+                    withConfigurationSpecifier:^(JTKApiRequestConfiguration *configuration) {
         configuration.clientErrorHandler = clientErrorHandler;
         configuration.serverErrorHandler = serverErrorHandler;
         configuration.successHandler = successDataHandler;

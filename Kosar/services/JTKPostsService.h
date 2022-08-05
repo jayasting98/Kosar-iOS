@@ -18,4 +18,8 @@
     withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
         withSuccessHandler:(void (^)(JTKPost *))successHandler;
 
+- (void)getPostsWithClientErrorHandler:(void (^)(NSError *))clientErrorHandler
+                withServerErrorHandler:(void (^)(NSHTTPURLResponse *))serverErrorHandler
+                    withSuccessHandler:(void (^)(NSArray<JTKPost *> *))successHandler;
+
 @end
