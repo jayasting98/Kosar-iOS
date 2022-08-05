@@ -38,6 +38,10 @@
     return posts;
 }
 
+- (void)resetData {
+    self.postModels = [[NSArray alloc] init];
+}
+
 - (void)getPostsWithCompletionHandler:(void (^)(void))completionHandler {
     void (^successHandler)(NSArray<JTKPost *> *posts) = ^(NSArray<JTKPost *> *posts) {
         self.postModels = posts;
