@@ -82,12 +82,17 @@ static CGFloat const kMargin = 16;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self resetPostMessageTextAreaText];
     [self addObserversForResizingViewForKeyboard];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self removeObserversForResizingViewForKeyboard];
+}
+
+- (void)resetPostMessageTextAreaText {
+    self.postMessageTextArea.textView.text = @"";
 }
 
 - (void)addObserversForResizingViewForKeyboard {
